@@ -1,2 +1,2 @@
-# teach-me---app-Co-design
+# Grupo 4
 Projeto de Felipe, Danny, Rodrigo, Rafael e Gabriel
