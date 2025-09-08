@@ -4,18 +4,14 @@
     <meta charset="UTF-8">
     <title>Agendar aula</title>
     <style>
-      /* permite esconder a lista em “Ver horários” */
       #horarios { display: none; margin-top: 12px; }
       #horarios:target { display: block; }
 
-      /* estilo usado nos botoes de horário */
       .slot { display:inline-block; padding:6px 10px; border:1px solid #000; text-decoration:none; margin:4px 6px 0 0; }
 
-      /* overlay do pop-up */
       .overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.45); }
       .overlay:target { display:block; }
 
-      /* caixa do pop-up */
       .modal {
         background:#fff;
         width:min(400px, 90%);
@@ -80,7 +76,6 @@
       </section>
     </main>
 
-    <!-- Pop up -->
     <div id="confirmar" class="overlay">
       <div class="modal" role="dialog" aria-modal="true">
         <header>
@@ -89,7 +84,7 @@
         </header>
         <p>Deseja confirmar este horário com <strong>Ana Souza</strong>?</p>
         <p>
-          <a href="confirmacao.html">✅ Sim, confirmar</a>
+          <a href="confirmacao.html"> Sim, confirmar</a>
           &nbsp;&nbsp;
           <a href="#" class="btn-fechar">Cancelar</a>
         </p>
