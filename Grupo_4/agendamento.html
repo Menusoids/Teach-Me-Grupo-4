@@ -28,18 +28,25 @@
     </style>
   </head>
   <body>
-    <header>
-      <h1>Agendamento de Aula</h1>
-      <nav>
-        <a href="index.html">🏠 Início</a> |
-        <a href="tela_professores_resultado.html">🔙 Voltar</a>
-      </nav>
+    <header style="display:flex; align-items:center; justify-content:space-between; padding:8px;">
+      <a href="tela_perfil.html">
+        <img src="img/pessoa.png" alt="Perfil" style="width:50px; height:50px;">
+      </a>
+      <h1 style="margin:0; font-size:40px;">Teach Me!</h1>
+      <a href="index.html">
+        <img src="img/casa.png" alt="Início" style="width:30px; height:30px;">
+      </a>
     </header>
+    
+      <h1>Agendamento de Aula</h1>
 
     <main>
+      <nav>
+        <a href="tela_professores_resultado.html">🔙 Voltar</a>
+      </nav>
+
       <h2>Professor(a): Roberta – Matemática</h2>
 
-      <!-- Escolha de data e duração -->
       <form>
         <p>
           <label>Data:
@@ -61,7 +68,7 @@
         </p>
       </form>
 
-      <!-- Lista de horários (aparece só depois de clicar em “Ver horários”) -->
+    
       <section id="horarios">
         <h3>Horários disponíveis</h3>
         <p>
@@ -73,7 +80,7 @@
       </section>
     </main>
 
-    <!-- POP-UP (abre quando clicar em qualquer horário, que leva para #confirmar) -->
+    <!-- Pop up -->
     <div id="confirmar" class="overlay">
       <div class="modal" role="dialog" aria-modal="true">
         <header>
