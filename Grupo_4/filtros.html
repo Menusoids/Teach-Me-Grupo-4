@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Encontrar Professores</title>
+  </head>
+  <body>
+    <header>
+      <img src="img/menu.png" alt="botão de menu" />
+      <h1>TeachMe</h1>
+      <nav><a href="index.html">Início</a></nav>
+    </header>
+
+    <main>
+      <h2>Selecione os filtros da pesquisa:</h2>
+
+      <!-- Formulário só em HTML: escolhe tudo e envia -->
+      <form action="tela_professores_resultado.html" method="get">
+        <!-- Matéria -->
+        <section>
+          <h3>Matéria</h3>
+          <menu>
+            <li>
+              <label>
+                <input type="radio" name="materia" value="Matemática" required />
+                Matemática
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="materia" value="Português" />
+                Português
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="materia" value="Ciências" />
+                Ciências
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="materia" value="História" />
+                História
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="materia" value="Geografia" />
+                Geografia
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="materia" value="Inglês" required />
+                Inglês
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="materia" value="Redação" required />
+                Redação
+              </label>
+            </li>
+          </menu>
+        </section>
+
+        <!-- Idade -->
+        <section>
+          <h3>Idade</h3>
+          <menu>
+             <li>
+              <label>
+                <input type="radio" name="idade" value="5-6" required />
+                5-6
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="idade" value="7-8" required />
+                7-8
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="idade" value="9-10" />
+                9-10
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="idade" value="11-12" />
+                11-12
+              </label>
+            </li>
+             <li>
+              <label>
+                <input type="radio" name="idade" value="13-14" required />
+                13-14
+              </label>
+            </li>
+          </menu>
+        </section>
+
+        <!-- Preço -->
+        <section>
+          <h3>Preço máximo por hora</h3>
+          <menu>
+            <li>
+              <label>
+                <input type="radio" name="preco" value="até R$ 50" required />
+                Até R$ 50
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="preco" value="até R$ 100" />
+                Até R$ 100
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="preco" value="até R$ 150" />
+                Até R$ 150
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="preco" value="até R$ 200" />
+                Até R$ 200
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="preco" value="até R$ 250" />
+                Até R$ 250
+              </label>
+            </li>
+          </menu>
+        </section>
+
+        <!-- Botão para ver os resultados -->
+        <p>
+          <button type="submit">Ver professores</button>
+          <a href="index.html">Cancelar</a>
+        </p>
+      </form>
+    </main>
+
+    <footer>
+      <nav>
+        <a href="tela_configuracoes.html">Configurações</a>
+        <a href="tela_calendario.html">Calendário</a>
+        <a href="tela_livros.html">Materiais</a>
+        <a href="tela_mensagens.html">Mensagens</a>
+      </nav>
+    </footer>
+  </body>
+</html>
