@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <title>Agendar aula</title>
+    <style>
+      /* Esconde a lista até clicar em “Ver horários” */
+      #horarios { display: none; margin-top: 12px; }
+      #horarios:target { display: block; }
+
+      /* Estilo dos botões de horário */
+      .slot { display:inline-block; padding:6px 10px; border:1px solid #000; text-decoration:none; margin:4px 6px 0 0; }
+
+      /* Overlay do pop-up */
+      .overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.45); }
+      .overlay:target { display:block; }
+
+      /* Caixa do pop-up */
+      .modal {
+        background:#fff;
+        width:min(400px, 90%);
+        margin:15vh auto;
+        padding:16px;
+        border:2px solid #000;
+      }
+      .modal header { display:flex; justify-content:space-between; align-items:center; }
+      .btn-fechar { text-decoration:none; font-weight:bold; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Agendamento de Aula</h1>
+      <nav>
+        <a href="index.html">🏠 Início</a> |
+        <a href="tela_professores_resultado.html">🔙 Voltar</a>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Professor(a): Roberta – Matemática</h2>
+
+      <!-- Escolha de data e duração -->
+      <form>
+        <p>
+          <label>Data:
+            <input type="date" required>
+          </label>
+        </p>
+        <p>
+          <label>Duração:
+            <select required>
+              <option value="">Selecione…</option>
+              <option>60 min</option>
+              <option>90 min</option>
+              <option>120 min</option>
+            </select>
+          </label>
+        </p>
+        <p>
+          <a class="slot" href="#horarios">Ver horários disponíveis</a>
+        </p>
+      </form>
+
+      <!-- Lista de horários (aparece só depois de clicar em “Ver horários”) -->
+      <section id="horarios">
+        <h3>Horários disponíveis</h3>
+        <p>
+          <a class="slot" href="#confirmar">14:00 – 15:00</a>
+          <a class="slot" href="#confirmar">15:30 – 16:30</a>
+          <a class="slot" href="#confirmar">18:00 – 19:00</a>
+        </p>
+        <p><a href="#">← Ocultar horários</a></p>
+      </section>
+    </main>
+
+    <!-- POP-UP (abre quando clicar em qualquer horário, que leva para #confirmar) -->
+    <div id="confirmar" class="overlay">
+      <div class="modal" role="dialog" aria-modal="true">
+        <header>
+          <h2 style="margin:0;">Confirmar agendamento</h2>
+          <a href="#" class="btn-fechar">✖</a>
+        </header>
+        <p>Deseja confirmar este horário com <strong>Roberta</strong>?</p>
+        <p>
+          <a href="confirmacao.html">✅ Sim, confirmar</a>
+          &nbsp;&nbsp;
+          <a href="#" class="btn-fechar">Cancelar</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

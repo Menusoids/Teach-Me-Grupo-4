@@ -5,18 +5,19 @@
     <title>Encontrar Professores</title>
   </head>
   <body>
-    <header>
-      <img src="img/menu.png" alt="botão de menu" />
-      <h1>TeachMe</h1>
-      <nav><a href="index.html">Início</a></nav>
+    <header style="display:flex; align-items:center; justify-content:space-between; padding:8px;">
+      <a href="tela_perfil.html">
+        <img src="img/pessoa.png" alt="Perfil" style="width:30px; height:30px;">
+      </a>
+      <h1 style="margin:0; font-size:20px;">TeachMe</h1>
+      <a href="index.html">
+        <img src="img/casa.png" alt="Início" style="width:24px; height:24px;">
+      </a>
     </header>
 
     <main>
       <h2>Selecione os filtros da pesquisa:</h2>
-
-      <!-- Formulário só em HTML: escolhe tudo e envia -->
-      <form action="tela_professores_resultado.html" method="get">
-        <!-- Matéria -->
+      <form action="lista_professores.html" method="get">
         <section>
           <h3>Matéria</h3>
           <menu>
@@ -65,7 +66,6 @@
           </menu>
         </section>
 
-        <!-- Idade -->
         <section>
           <h3>Idade</h3>
           <menu>
@@ -102,7 +102,6 @@
           </menu>
         </section>
 
-        <!-- Preço -->
         <section>
           <h3>Preço máximo por hora</h3>
           <menu>
@@ -139,7 +138,6 @@
           </menu>
         </section>
 
-        <!-- Botão para ver os resultados -->
         <p>
           <button type="submit">Ver professores</button>
           <a href="index.html">Cancelar</a>
@@ -149,10 +147,10 @@
 
     <footer>
       <nav>
-        <a href="tela_configuracoes.html">Configurações</a>
-        <a href="tela_calendario.html">Calendário</a>
-        <a href="tela_livros.html">Materiais</a>
-        <a href="tela_mensagens.html">Mensagens</a>
+        <a href="configuracoes.html">Configurações</a>
+        <a href="calendario.html">Calendário</a>
+        <a href="progresso.html">Materiais</a>
+        <a href="mensagens.html">Mensagens</a>
       </nav>
     </footer>
   </body>
