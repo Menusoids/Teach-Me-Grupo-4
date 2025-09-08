@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <title>Agendar aula</title>
     <style>
-      /* Esconde a lista até clicar em “Ver horários” */
+      /* permite esconder a lista em “Ver horários” */
       #horarios { display: none; margin-top: 12px; }
       #horarios:target { display: block; }
 
-      /* Estilo dos botões de horário */
+      /* estilo usado nos botoes de horário */
       .slot { display:inline-block; padding:6px 10px; border:1px solid #000; text-decoration:none; margin:4px 6px 0 0; }
 
-      /* Overlay do pop-up */
+      /* overlay do pop-up */
       .overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.45); }
       .overlay:target { display:block; }
 
-      /* Caixa do pop-up */
+      /* caixa do pop-up */
       .modal {
         background:#fff;
         width:min(400px, 90%);
@@ -29,12 +29,12 @@
   </head>
   <body>
     <header style="display:flex; align-items:center; justify-content:space-between; padding:8px;">
-      <a href="tela_perfil.html">
-        <img src="img/pessoa.png" alt="Perfil" style="width:50px; height:50px;">
+      <a href="index.html">
+        <img src="img/casa.png" alt="Perfil" style="width:30px; height:30px;">
       </a>
       <h1 style="margin:0; font-size:40px;">Teach Me!</h1>
-      <a href="index.html">
-        <img src="img/casa.png" alt="Início" style="width:30px; height:30px;">
+      <a href="tela_perfil.html">
+        <img src="img/pessoa.png" alt="Início" style="width:50px; height:50px;">
       </a>
     </header>
     
@@ -45,7 +45,7 @@
         <a href="tela_professores_resultado.html">🔙 Voltar</a>
       </nav>
 
-      <h2>Professor(a): Roberta – Matemática</h2>
+      <h2>Professor(a): Ana Souza – Matemática</h2>
 
       <form>
         <p>
@@ -87,7 +87,7 @@
           <h2 style="margin:0;">Confirmar agendamento</h2>
           <a href="#" class="btn-fechar">✖</a>
         </header>
-        <p>Deseja confirmar este horário com <strong>Roberta</strong>?</p>
+        <p>Deseja confirmar este horário com <strong>Ana Souza</strong>?</p>
         <p>
           <a href="confirmacao.html">✅ Sim, confirmar</a>
           &nbsp;&nbsp;
