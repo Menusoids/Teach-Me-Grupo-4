@@ -2,96 +2,77 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8">
-    <title>Agendar aula</title>
-
-    <!--Pegamos modelo pronto da agenda como uma parte mais avançada de como ficaria no final!! -->
-    <style>
-      #horarios { display: none; margin-top: 12px; }
-      #horarios:target { display: block; }
-
-      .slot { display:inline-block; padding:6px 10px; border:1px solid #000; text-decoration:none; margin:4px 6px 0 0; }
-
-      .overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.45); }
-      .overlay:target { display:block; }
-
-      .modal {
-        background:#fff;
-        width:min(400px, 90%);
-        margin:15vh auto;
-        padding:16px;
-        border:2px solid #000;
-      }
-      .modal header { display:flex; justify-content:space-between; align-items:center; }
-      .btn-fechar { text-decoration:none; font-weight:bold; }
-    </style>
-
-
+    <title>Agendar Aula</title>
+    <link rel="stylesheet" href="css/style.css">
   </head>
+
   <body>
-    <header style="display:flex; align-items:center; justify-content:space-between; padding:8px;">
-      <a href="index.html">
-        <img src="img/casa.png" alt="Perfil" style="width:30px; height:30px;">
+    <header class="header">
+      <a href="index.html" class="header__icon">
+        <img src="img/casa.png" alt="Início">
       </a>
-      <h1 style="margin:0; font-size:40px;">Teach Me!</h1>
-      <a href="tela_perfil.html">
-        <img src="img/pessoa.png" alt="Início" style="width:50px; height:50px;">
+      <h1 class="header__title">Teach Me!</h1>
+      <a href="tela_perfil.html" class="header__icon">
+        <img src="img/pessoa.png" alt="Perfil">
       </a>
     </header>
-    
-      <h1>Agendamento de Aula</h1>
 
-    <main>
-      <nav>
-        <a href="tela_professores_resultado.html"> Voltar</a>
+    <main class="main agendamento">
+      <h1 class="main__section-title">Agendamento de Aula</h1>
+
+      <nav class="main__nav">
+        <a href="tela_professores_resultado.html" class="btn btn--secondary">← Voltar</a>
       </nav>
 
-      <h2>Professor(a): Ana Souza – Matemática</h2>
+      <h2 class="agendamento__professor">Professor(a): Ana Souza – Matemática</h2>
 
-      <form>
-        <p>
+      <form class="form agendamento__form">
+        <div class="form__group">
           <label>Data:
-            <input type="date" required>
+            <input type="date" required class="form__input">
           </label>
-        </p>
-        <p>
+        </div>
+
+        <div class="form__group">
           <label>Duração:
-            <select required>
+            <select required class="form__select">
               <option value="">Selecione…</option>
               <option>60 min</option>
               <option>90 min</option>
               <option>120 min</option>
             </select>
           </label>
-        </p>
-        <p>
-          <a class="slot" href="#horarios">Ver horários disponíveis</a>
-        </p>
+        </div>
+
+        <div class="form__actions">
+          <a class="btn btn--primary" href="#horarios">Ver horários disponíveis</a>
+        </div>
       </form>
 
-    
-      <section id="horarios">
-        <h3>Horários disponíveis</h3>
-        <p>
+      <section id="horarios" class="agendamento__horarios">
+        <h3 class="agendamento__subtitle">Horários disponíveis</h3>
+        <div class="slot__list">
           <a class="slot" href="#confirmar">14:00 – 15:00</a>
           <a class="slot" href="#confirmar">15:30 – 16:30</a>
           <a class="slot" href="#confirmar">18:00 – 19:00</a>
-        </p>
-        <p><a href="#">← Ocultar horários</a></p>
+        </div>
+        <a href="#" class="agendamento__hide">← Ocultar horários</a>
       </section>
     </main>
 
     <div id="confirmar" class="overlay">
       <div class="modal" role="dialog" aria-modal="true">
-        <header>
-          <h2 style="margin:0;">Confirmar agendamento</h2>
-          <a href="#" class="btn-fechar">✖</a>
+        <header class="modal__header">
+          <h2 class="modal__title">Confirmar agendamento</h2>
+          <a href="#" class="modal__close">✖</a>
         </header>
-        <p>Deseja confirmar este horário com <strong>Ana Souza</strong>?</p>
-        <p>
-          <a href="confirmacao.html"> Sim, confirmar</a>
-          &nbsp;&nbsp;
-          <a href="#" class="btn-fechar">Cancelar</a>
+        <p class="modal__text">
+          Deseja confirmar este horário com <strong>Ana Souza</strong>?
         </p>
+        <div class="modal__actions">
+          <a href="confirmacao.html" class="btn btn--primary">Sim, confirmar</a>
+          <a href="#" class="btn btn--secondary">Cancelar</a>
+        </div>
       </div>
     </div>
   </body>

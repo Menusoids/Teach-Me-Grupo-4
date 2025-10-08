@@ -1,41 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Professores Encontrados</title>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
+
   <body>
-    <header style="display:flex; align-items:center; justify-content:space-between; padding:8px;">
-      <a href="index.html">
-        <img src="img/casa.png" alt="Perfil" style="width:30px; height:30px;">
+    <header class="header">
+      <a href="index.html" class="header__icon">
+        <img src="img/casa.png" alt="Início" />
       </a>
-      <h1 style="margin:0; font-size:40px;">Teach Me!</h1>
-      <a href="tela_perfil.html">
-        <img src="img/pessoa.png" alt="Início" style="width:50px; height:50px;">
+      <h1 class="header__title">Teach Me!</h1>
+      <a href="tela_perfil.html" class="header__icon">
+        <img src="img/pessoa.png" alt="Perfil" />
       </a>
     </header>
 
-    <main>
-      <h2>Professores Encontrados</h2>
-      <nav>
-        <a href="filtros.html"> Voltar aos filtros</a>
+    <main class="main">
+      <h2 class="main__section-title">Professores Encontrados</h2>
+
+      <nav class="main__nav">
+        <a href="filtros.html" class="btn btn--secondary">← Voltar aos filtros</a>
       </nav>
-      <section>
-        <h2>Prof. Ana Souza</h2>
-        <p>Matemática • 28 anos • R$ 80/h</p>
-        <a href="agendamento.html">Agendar sua aula</a>
-      </section>
 
-      <section>
-        <h2>Prof. João Lima</h2>
-        <p>Português • 35 anos • R$ 60/h</p>
-        <a href="agendamento.html">Agendar sua aula</a>
-      </section>
+      <section class="cards">
+        <article class="card">
+          <h3 class="card__title">Prof. Ana Souza</h3>
+          <p class="card__info">Matemática • 28 anos • R$ 80/h</p>
+          <a href="agendamento.html" class="btn btn--primary">Agendar aula</a>
+        </article>
 
-      <section>
-        <h2>Prof. Maria Santos</h2>
-        <p>Programação • 24 anos • R$ 100/h</p>
-        <a href="agendamento.html">Agendar sua aula</a>
+        <article class="card">
+          <h3 class="card__title">Prof. João Lima</h3>
+          <p class="card__info">Português • 35 anos • R$ 60/h</p>
+          <a href="agendamento.html" class="btn btn--primary">Agendar aula</a>
+        </article>
+
+        <article class="card">
+          <h3 class="card__title">Prof. Maria Santos</h3>
+          <p class="card__info">Programação • 24 anos • R$ 100/h</p>
+          <a href="agendamento.html" class="btn btn--primary">Agendar aula</a>
+        </article>
       </section>
     </main>
   </body>
