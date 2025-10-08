@@ -1,0 +1,87 @@
+/* ========== BASE GERAL ========== */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #222;
+  background-color: #fff;
+}
+
+h1, h2 {
+  margin: 0;
+}
+
+/* ========== HEADER ========== */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  border-bottom: 2px solid #000;
+  background-color: #f9f9f9;
+}
+
+.header__title {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.header__icon img {
+  width: 40px;
+  height: 40px;
+}
+
+/* ========== MAIN ========== */
+.main {
+  padding: 20px;
+}
+
+.main__section {
+  margin-bottom: 20px;
+}
+
+.main__section-title {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.main__link {
+  text-decoration: none;
+  color: #0077cc;
+}
+
+.main__link:hover {
+  text-decoration: underline;
+}
+
+/* ========== LISTAS ========== */
+.list {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.list__item {
+  margin: 4px 0;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  border-top: 2px solid #000;
+  padding: 10px 0;
+  background-color: #f9f9f9;
+}
+
+.footer__nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer__link {
+  text-decoration: none;
+  color: #0077cc;
+  font-weight: 500;
+}
+
+.footer__link:hover {
+  text-decoration: underline;
+}

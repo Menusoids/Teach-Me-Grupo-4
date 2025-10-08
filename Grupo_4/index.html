@@ -3,55 +3,53 @@
   <head>
     <meta charset="UTF-8">
     <title>TeachMe</title>
+    <link rel="stylesheet" href="css/style.css">
   </head>
+
   <body>
-    <header style="display:flex; align-items:center; justify-content:space-between; padding:8px;">
-      <a href="index.html">
-        <img src="img/casa.png" alt="Perfil" style="width:30px; height:30px;">
+    <header class="header">
+      <a href="index.html" class="header__icon">
+        <img src="img/casa.png" alt="Início">
       </a>
-      <h1 style="margin:0; font-size:40px;">Teach Me!</h1>
-      <a href="tela_perfil.html">
-        <img src="img/pessoa.png" alt="Início" style="width:50px; height:50px;">
+      <h1 class="header__title">Teach Me!</h1>
+      <a href="tela_perfil.html" class="header__icon">
+        <img src="img/pessoa.png" alt="Perfil">
       </a>
     </header>
 
-
-    <main>
-    
-      <section>
-        <h2>
-          <a href="filtros.html">🔍 Encontrar Professores</a>
+    <main class="main">
+      <section class="main__section">
+        <h2 class="main__section-title">
+          <a href="filtros.html" class="main__link">🔍 Encontrar Professores</a>
         </h2>
       </section>
 
-      <section>
-        <h2>Próximas aulas</h2>
-        <ul>
-          <li>26/08, 14:00 - Matemática - Prof. Maria</li>
-          <li>28/08, 10:00 - Física - Prof. João</li>
-          <li>30/08, 16:00 - Química - Prof. Ana</li>
+      <section class="main__section">
+        <h2 class="main__section-title">Próximas aulas</h2>
+        <ul class="list">
+          <li class="list__item">26/08, 14:00 - Matemática - Prof. Maria</li>
+          <li class="list__item">28/08, 10:00 - Física - Prof. João</li>
+          <li class="list__item">30/08, 16:00 - Química - Prof. Ana</li>
         </ul>
       </section>
 
-      <section>
-        <h2>Entregas</h2>
-        <ul>
-          <li>30/06 - Lista de Exercícios 1 - Matemática</li>
-          <li>02/07 - Trabalho de História</li>
-          <li>05/07 - Redação de Português</li>
+      <section class="main__section">
+        <h2 class="main__section-title">Entregas</h2>
+        <ul class="list">
+          <li class="list__item">30/06 - Lista de Exercícios 1 - Matemática</li>
+          <li class="list__item">02/07 - Trabalho de História</li>
+          <li class="list__item">05/07 - Redação de Português</li>
         </ul>
       </section>
     </main>
 
-
-    <footer>
-      <nav>
-        <a href="configuracoes.html">Configurações</a>
-        <a href="calendario.html">Agenda</a>
-        <a href="progresso.html">Progresso</a>
-        <a href="mensagens.html">Mensagens</a>
+    <footer class="footer">
+      <nav class="footer__nav">
+        <a href="configuracoes.html" class="footer__link">Configurações</a>
+        <a href="calendario.html" class="footer__link">Agenda</a>
+        <a href="progresso.html" class="footer__link">Progresso</a>
+        <a href="mensagens.html" class="footer__link">Mensagens</a>
       </nav>
     </footer>
   </body>
 </html>
-
