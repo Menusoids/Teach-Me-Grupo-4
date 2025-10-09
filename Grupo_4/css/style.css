@@ -231,6 +231,13 @@ a:hover {
 }
 
 /* ====== AGENDAMENTO ====== */
+.paragrafo_agendamento {
+  font-family: 'Rubik', sans-serif;
+  color: var(--azul-medio);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .agendamento__professor {
   font-family: 'Rubik', sans-serif;
   color: var(--azul-medio);
