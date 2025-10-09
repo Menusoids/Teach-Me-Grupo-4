@@ -53,9 +53,14 @@ a:hover {
   color: var(--preto);
 }
 
-.cabecalho__icone img {
+.cabecalho__casa img {
   width: 40px;
   height: 40px;
+}
+
+.cabecalho__pessoa img {
+  width: 70px;
+  height: 70px;
 }
 
 /* ====== CONTEUDO PRINCIPAL ====== */
@@ -616,10 +621,17 @@ a:hover {
   flex-direction: row-reverse;
 }
 
-.avatar-professor,
-.avatar-aluno {
+.avatar-professor {
   width: 40px;
   height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.avatar-aluno {
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   flex-shrink: 0;
   overflow: hidden;
