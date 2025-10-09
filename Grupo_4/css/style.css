@@ -1,3 +1,10 @@
+/* ======= TAMANHO TELA ======= */
+html {width: 100%;
+}
+body {width: 100%;
+}
+
+
 /* ====== FONTES ====== */
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&family=Mulish:wght@400;500;600&display=swap');
 
@@ -19,8 +26,6 @@ body {
   padding: 0;
   color: var(--preto);
   background-color: var(--bege);
-  width: 100vw;
-  height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
 }
