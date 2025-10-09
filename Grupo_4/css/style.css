@@ -752,6 +752,123 @@ a:hover {
   background: var(--amarelo-forte);
 }
 
+/* ====== CALENDÁRIO ====== */
+.calendario-container {
+  background-color: var(--branco);
+  border: 2px solid var(--azul-claro);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.cabecalho-calendario {
+  background-color: var(--azul-medio);
+  color: var(--branco);
+}
+
+.dias-semana {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.dia-semana {
+  padding: 12px 8px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  border-right: 1px solid var(--azul-claro);
+}
+
+.dia-semana:last-child {
+  border-right: none;
+}
+
+.grade-calendario {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  background-color: var(--azul-claro);
+}
+
+.dia-calendario {
+  background-color: var(--branco);
+  min-height: 80px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.dia-calendario.vazio {
+  background-color: var(--bege);
+}
+
+.numero-dia {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--azul-medio);
+  margin-bottom: 4px;
+}
+
+.evento-aula {
+  background-color: var(--azul-claro);
+  color: var(--azul-medio);
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: auto;
+}
+
+.evento-entrega {
+  background-color: var(--amarelo-claro);
+  color: var(--preto);
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: auto;
+}
+
+.legenda-calendario {
+  background-color: var(--branco);
+  padding: 16px;
+  border: 2px solid var(--azul-claro);
+  border-radius: 8px;
+}
+
+.legenda-calendario h3 {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.itens-legenda {
+  display: flex;
+  gap: 20px;
+}
+
+.item-legenda {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cor-legenda {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.cor-legenda.aula {
+  background-color: var(--azul-claro);
+}
+
+.cor-legenda.entrega {
+  background-color: var(--amarelo-claro);
+}
+
 /* ====== FOTO PROFESSORA ====== */
 .container-professora {
   display: flex;
