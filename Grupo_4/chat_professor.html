@@ -126,12 +126,11 @@
         </div>
 
         <div class="area-envio">
-          <form class="formulario-envio" id="formulario-envio">
-            <div class="container-input">
-              <input type="text" id="input-mensagem" class="input-mensagem" placeholder="Digite sua mensagem..." required>
-              <button type="submit" class="botao-enviar">Enviar</button>
+          <div class="container-input">
+            <div class="input-desabilitado">
+              <span>Chat simbólico - apenas visualização</span>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </main>
@@ -146,7 +145,7 @@
     </footer>
 
     <script>
-      // Função para voltar à página anterior
+      // Função simples para voltar à página anterior
       document.getElementById('botao-voltar').addEventListener('click', function(e) {
         e.preventDefault();
         
@@ -160,78 +159,6 @@
           // Fallback para página anterior no histórico
           window.history.back();
         }
-      });
-
-      // Função para enviar mensagem
-      document.getElementById('formulario-envio').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const input = document.getElementById('input-mensagem');
-        const mensagem = input.value.trim();
-        
-        if (mensagem) {
-          adicionarMensagemAluno(mensagem);
-          input.value = '';
-          
-          // Simular resposta do professor após 2 segundos
-          setTimeout(() => {
-            adicionarMensagemProfessor("Entendi sua mensagem! Vou responder em breve.");
-          }, 2000);
-        }
-      });
-
-      function adicionarMensagemAluno(texto) {
-        const areaMensagens = document.getElementById('area-mensagens');
-        const agora = new Date();
-        const hora = agora.getHours().toString().padStart(2, '0') + ':' + agora.getMinutes().toString().padStart(2, '0');
-        
-        const mensagemHTML = `
-          <div class="mensagem-aluno">
-            <div class="conteudo-mensagem">
-              <div class="cabecalho-mensagem">
-                <span class="nome-aluno">Você</span>
-                <span class="hora-mensagem">${hora}</span>
-              </div>
-              <div class="texto-mensagem">${texto}</div>
-            </div>
-            <div class="avatar-aluno">
-              <img src="img/pessoa.png" alt="Aluno">
-            </div>
-          </div>
-        `;
-        
-        areaMensagens.insertAdjacentHTML('beforeend', mensagemHTML);
-        areaMensagens.scrollTop = areaMensagens.scrollHeight;
-      }
-
-      function adicionarMensagemProfessor(texto) {
-        const areaMensagens = document.getElementById('area-mensagens');
-        const agora = new Date();
-        const hora = agora.getHours().toString().padStart(2, '0') + ':' + agora.getMinutes().toString().padStart(2, '0');
-        
-        const mensagemHTML = `
-          <div class="mensagem-professor">
-            <div class="avatar-professor">
-              <img src="img/ana.png" alt="Prof. Ana">
-            </div>
-            <div class="conteudo-mensagem">
-              <div class="cabecalho-mensagem">
-                <span class="nome-professor">Prof. Ana Souza</span>
-                <span class="hora-mensagem">${hora}</span>
-              </div>
-              <div class="texto-mensagem">${texto}</div>
-            </div>
-          </div>
-        `;
-        
-        areaMensagens.insertAdjacentHTML('beforeend', mensagemHTML);
-        areaMensagens.scrollTop = areaMensagens.scrollHeight;
-      }
-
-      // Scroll automático para a última mensagem ao carregar a página
-      window.addEventListener('load', function() {
-        const areaMensagens = document.getElementById('area-mensagens');
-        areaMensagens.scrollTop = areaMensagens.scrollHeight;
       });
     </script>
   </body>
