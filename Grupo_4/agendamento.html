@@ -7,36 +7,43 @@
   </head>
 
   <body>
-    <header class="header">
-      <a href="index.html" class="header__icon">
+    <header class="cabecalho">
+      <a href="index.html" class="cabecalho__icone">
         <img src="img/casa.png" alt="Início">
       </a>
-      <h1 class="header__title">Teach Me!</h1>
-      <a href="tela_perfil.html" class="header__icon">
+      <h1 class="cabecalho__titulo">Teach Me!</h1>
+      <a href="tela_perfil.html" class="cabecalho__icone">
         <img src="img/pessoa.png" alt="Perfil">
       </a>
     </header>
 
-    <main class="main agendamento">
-      <h1 class="main__section-title">Agendamento de Aula</h1>
+    <main class="conteudo-principal">
+      <h1 class="titulo-secao">Agendamento de Aula</h1>
 
-      <nav class="main__nav">
-        <a href="tela_professores_resultado.html" class="btn btn--secondary">← Voltar</a>
+      <nav class="navegacao-principal">
+        <a href="lista_professores.html" class="botao botao-secundario">← Voltar</a>
       </nav>
 
-      <h2 class="agendamento__professor">Professor(a): Ana Souza – Matemática</h2>
-      <p class="paragrafo_agendamento">Sou Ana Souza, formada em Matemática pela Universidade de São Paulo (USP) e apaixonada por ensinar. Há mais de 5 anos, ajudo alunos a entenderem a matemática de forma leve e prática, transformando o medo dos números em curiosidade e confiança. Gosto de adaptar minhas aulas ao ritmo de cada estudante e mostrar como a lógica está presente em tudo ao nosso redor.</p>
+      <div class="container-professora">
+        <div class="foto-professora">
+          <img src="img/professora_ana.jpg" alt="Foto da Prof. Ana Souza">
+        </div>
+        <div class="texto-professora">
+          <h2 class="professor-agendamento">Professor(a): Ana Souza – Matemática</h2>
+          <p class="paragrafo_agendamento">Sou Ana Souza, formada em Matemática pela Universidade de São Paulo (USP) e apaixonada por ensinar. Há mais de 5 anos, ajudo alunos a entenderem a matemática de forma leve e prática, transformando o medo dos números em curiosidade e confiança. Gosto de adaptar minhas aulas ao ritmo de cada estudante e mostrar como a lógica está presente em tudo ao nosso redor.</p>
+        </div>
+      </div>
 
-      <form class="form agendamento__form">
-        <div class="form__group">
+      <form class="formulario formulario-agendamento">
+        <div class="grupo-formulario">
           <label>Data:
-            <input type="date" required class="form__input">
+            <input type="date" required class="input-formulario">
           </label>
         </div>
 
-        <div class="form__group">
+        <div class="grupo-formulario">
           <label>Duração:
-            <select required class="form__select">
+            <select required class="select-formulario">
               <option value="">Selecione…</option>
               <option>60 min</option>
               <option>90 min</option>
@@ -45,43 +52,43 @@
           </label>
         </div>
 
-        <div class="form__actions">
-          <a class="btn btn--primary" href="#horarios">Ver horários disponíveis</a>
+        <div class="acoes-formulario">
+          <a class="botao botao-principal" href="#horarios">Ver horários disponíveis</a>
         </div>
       </form>
 
-      <section id="horarios" class="agendamento__horarios">
-        <h3 class="agendamento__subtitle">Horários disponíveis</h3>
-        <div class="slot__list">
-          <a class="slot" href="#confirmar">14:00 – 15:00</a>
-          <a class="slot" href="#confirmar">15:30 – 16:30</a>
-          <a class="slot" href="#confirmar">18:00 – 19:00</a>
+      <section id="horarios" class="horarios-agendamento">
+        <h3 class="subtitulo-agendamento">Horários disponíveis</h3>
+        <div class="lista-horarios">
+          <a class="horario-disponivel" href="#confirmar">14:00 – 15:00</a>
+          <a class="horario-disponivel" href="#confirmar">15:30 – 16:30</a>
+          <a class="horario-disponivel" href="#confirmar">18:00 – 19:00</a>
         </div>
-        <a href="#" class="agendamento__hide">← Ocultar horários</a>
+        <a href="#" class="ocultar-horarios">← Ocultar horários</a>
       </section>
     </main>
 
-    <div id="confirmar" class="overlay">
+    <div id="confirmar" class="fundo-modal">
       <div class="modal" role="dialog" aria-modal="true">
-        <header class="modal__header">
-          <h2 class="modal__title">Confirmar agendamento</h2>
-          <a href="#" class="modal__close">✖</a>
+        <header class="cabecalho-modal">
+          <h2 class="titulo-modal">Confirmar agendamento</h2>
+          <a href="#" class="fechar-modal">✖</a>
         </header>
-        <p class="modal__text">
+        <p class="texto-modal">
           Deseja confirmar este horário com <strong>Ana Souza</strong>?
         </p>
-        <div class="modal__actions">
-          <a href="confirmacao.html" class="btn btn--primary">Sim, confirmar</a>
-          <a href="#" class="btn btn--secondary">Cancelar</a>
+        <div class="acoes-modal">
+          <a href="confirmacao.html" class="botao botao-principal">Sim, confirmar</a>
+          <a href="#" class="botao botao-secundario">Cancelar</a>
         </div>
       </div>
     </div>
-    <footer class="footer">
-      <nav class="footer__nav">
-        <a href="configuracoes.html" class="footer__link">Configurações</a>
-        <a href="calendario.html" class="footer__link">Agenda</a>
-        <a href="progresso.html" class="footer__link">Progresso</a>
-        <a href="mensagens.html" class="footer__link">Mensagens</a>
+    <footer class="rodape">
+      <nav class="navegacao-rodape">
+        <a href="configuracoes.html" class="link-rodape">Configurações</a>
+        <a href="calendario.html" class="link-rodape">Agenda</a>
+        <a href="progresso.html" class="link-rodape">Progresso</a>
+        <a href="mensagens.html" class="link-rodape">Mensagens</a>
       </nav>
     </footer>
   </body>

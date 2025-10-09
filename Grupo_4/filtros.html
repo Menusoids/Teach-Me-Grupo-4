@@ -7,24 +7,24 @@
   </head>
 
   <body>
-    <header class="header">
-      <a href="index.html" class="header__icon">
+    <header class="cabecalho">
+      <a href="index.html" class="cabecalho__icone">
         <img src="img/casa.png" alt="Início">
       </a>
-      <h1 class="header__title">Teach Me!</h1>
-      <a href="tela_perfil.html" class="header__icon">
+      <h1 class="cabecalho__titulo">Teach Me!</h1>
+      <a href="tela_perfil.html" class="cabecalho__icone">
         <img src="img/pessoa.png" alt="Perfil">
       </a>
     </header>
 
-    <main class="main">
-      <h2 class="main__section-title">Selecione os filtros da pesquisa:</h2>
+    <main class="conteudo-principal">
+      <h2 class="titulo-secao">Selecione os filtros da pesquisa:</h2>
 
-      <form action="lista_professores.html" method="get" class="form">
+      <form action="lista_professores.html" method="get" class="formulario">
 
-        <section class="form__section">
-          <h3 class="form__subtitle">Matéria desejada</h3>
-          <ul class="form__list">
+        <section class="secao-formulario">
+          <h3 class="subtitulo-formulario">Matéria desejada</h3>
+          <ul class="lista-formulario">
             <li><label><input type="radio" name="materia" value="Matemática" required> Matemática</label></li>
             <li><label><input type="radio" name="materia" value="Português"> Português</label></li>
             <li><label><input type="radio" name="materia" value="Ciências"> Ciências</label></li>
@@ -35,9 +35,9 @@
           </ul>
         </section>
 
-        <section class="form__section">
-          <h3 class="form__subtitle">Idade do aluno</h3>
-          <ul class="form__list">
+        <section class="secao-formulario">
+          <h3 class="subtitulo-formulario">Idade do aluno</h3>
+          <ul class="lista-formulario">
             <li><label><input type="radio" name="idade" value="5-6" required> 5-6</label></li>
             <li><label><input type="radio" name="idade" value="7-8"> 7-8</label></li>
             <li><label><input type="radio" name="idade" value="9-10"> 9-10</label></li>
@@ -46,9 +46,9 @@
           </ul>
         </section>
 
-        <section class="form__section">
-          <h3 class="form__subtitle">Preço máximo por hora</h3>
-          <ul class="form__list">
+        <section class="secao-formulario">
+          <h3 class="subtitulo-formulario">Preço máximo por hora</h3>
+          <ul class="lista-formulario">
             <li><label><input type="radio" name="preco" value="até R$ 50" required> Até R$ 50</label></li>
             <li><label><input type="radio" name="preco" value="até R$ 100"> Até R$ 100</label></li>
             <li><label><input type="radio" name="preco" value="até R$ 150"> Até R$ 150</label></li>
@@ -57,20 +57,20 @@
           </ul>
         </section>
 
-        <div class="form__actions">
-          <button type="submit" class="btn btn--primary">Ver professores</button>
-          <a href="index.html" class="btn btn--secondary">Cancelar</a>
+        <div class="acoes-formulario">
+          <button type="submit" class="botao botao-principal">Ver professores</button>
+          <a href="index.html" class="botao botao-secundario">Cancelar</a>
         </div>
 
       </form>
     </main>
 
-    <footer class="footer">
-      <nav class="footer__nav">
-        <a href="configuracoes.html" class="footer__link">Configurações</a>
-        <a href="calendario.html" class="footer__link">Calendário</a>
-        <a href="progresso.html" class="footer__link">Materiais</a>
-        <a href="mensagens.html" class="footer__link">Mensagens</a>
+    <footer class="rodape">
+      <nav class="navegacao-rodape">
+        <a href="configuracoes.html" class="link-rodape">Configurações</a>
+        <a href="calendario.html" class="link-rodape">Calendário</a>
+        <a href="progresso.html" class="link-rodape">Materiais</a>
+        <a href="mensagens.html" class="link-rodape">Mensagens</a>
       </nav>
     </footer>
   </body>
