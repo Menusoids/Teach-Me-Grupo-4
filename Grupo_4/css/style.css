@@ -19,6 +19,10 @@ body {
   padding: 0;
   color: var(--preto);
   background-color: var(--bege);
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 h1, h2, h3 {
@@ -42,51 +46,57 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 20px;
+  padding: 8px 16px;
   background-color: var(--azul-claro);
   border-bottom: 3px solid var(--azul-medio);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .cabecalho__titulo {
-  font-size: 40px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--preto);
 }
 
 .cabecalho__casa img {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
 }
 
 .cabecalho__pessoa img {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
 }
 
 /* ====== CONTEUDO PRINCIPAL ====== */
 .conteudo-principal {
-  padding: 24px;
+  padding: 16px;
   background-color: var(--branco);
-  border-radius: 12px;
-  margin: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0;
+  margin: 0;
+  box-shadow: none;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: calc(100vh - 140px);
+  padding-bottom: 80px; /* Espaço para o rodapé fixo */
 }
 
 .secao {
-  margin-bottom: 28px;
+  margin-bottom: 16px;
 }
 
 .titulo-secao {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   color: var(--azul-medio);
 }
 
 .link-principal {
   font-weight: 500;
   color: var(--azul-medio);
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .link-principal:hover {
@@ -106,19 +116,29 @@ a:hover {
 
 /* ====== RODAPE ====== */
 .rodape {
-  border-top: 3px solid var(--azul-medio);
+  border-top: 2px solid var(--azul-medio);
   background-color: var(--azul-claro);
-  padding: 14px 0;
+  padding: 8px 0;
+  width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
 }
 
 .navegacao-rodape {
   display: flex;
   justify-content: space-around;
+  padding: 0 8px;
 }
 
 .link-rodape {
   font-weight: 600;
   color: var(--preto);
+  font-size: 12px;
+  padding: 4px 2px;
+  text-align: center;
 }
 
 .link-rodape:hover {
@@ -128,13 +148,18 @@ a:hover {
 /* ====== BOTÕES ====== */
 .botao {
   display: inline-block;
-  padding: 10px 16px;
-  border-radius: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
   font-weight: 600;
   border: none;
   cursor: pointer;
   text-align: center;
   transition: background-color 0.2s ease;
+  font-size: 14px;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .botao-principal {
@@ -159,9 +184,11 @@ a:hover {
 /* ====== FORMULÁRIOS ====== */
 .formulario {
   background-color: var(--branco);
-  padding: 20px;
-  border-radius: 10px;
+  padding: 16px;
+  border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .secao-formulario {
@@ -200,17 +227,20 @@ a:hover {
 .container-cards {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  margin-top: 20px;
+  gap: 8px;
+  margin-top: 12px;
 }
 
 .card-professor {
   background-color: var(--branco);
   border: 2px solid var(--azul-claro);
-  border-radius: 10px;
-  padding: 16px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 8px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .card-professor:hover {
@@ -318,14 +348,15 @@ a:hover {
 .input-formulario,
 .select-formulario {
   width: 100%;
-  padding: 10px 12px;
+  padding: 8px 10px;
   border: 2px solid var(--azul-claro);
-  border-radius: 6px;
+  border-radius: 4px;
   font-family: 'Mulish', sans-serif;
   font-size: 14px;
   background-color: var(--branco);
   color: var(--preto);
   transition: border-color 0.2s ease;
+  box-sizing: border-box;
 }
 
 .input-formulario:focus,
@@ -502,9 +533,10 @@ a:hover {
 
 .modal {
   background: var(--branco);
-  width: min(400px, 90%);
-  margin: 15vh auto;
-  padding: 20px;
+  width: 90%;
+  max-width: 320px;
+  margin: 20vh auto;
+  padding: 16px;
   border: 2px solid var(--azul-medio);
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
@@ -597,6 +629,8 @@ a:hover {
   border-radius: 12px;
   background-color: var(--branco);
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .area-mensagens {
@@ -771,6 +805,8 @@ a:hover {
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .cabecalho-calendario {
@@ -885,15 +921,15 @@ a:hover {
 .container-professora {
   display: flex;
   align-items: center;
-  gap: 20px;
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 .foto-professora {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  border: 3px solid var(--azul-medio);
+  border: 2px solid var(--azul-medio);
   background-color: var(--azul-claro);
   display: flex;
   align-items: center;
@@ -910,4 +946,62 @@ a:hover {
 
 .texto-professora {
   flex: 1;
+}
+
+/* ====== AJUSTES PARA TELA INTEIRA ====== */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Garantir que todos os elementos principais ocupem a largura total */
+.cabecalho,
+.conteudo-principal,
+.rodape,
+.formulario,
+.container-cards,
+.card-professor,
+.container-professora,
+.calendario-container,
+.container-chat {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ajustar inputs e selects para largura total */
+.input-formulario,
+.select-formulario,
+.input-mensagem {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ajustar botões para ocupar largura disponível */
+.botao {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.acoes-formulario {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.acoes-formulario .botao {
+  flex: 1;
+  margin: 0 4px;
+}
+
+.acoes-formulario .botao:first-child {
+  margin-left: 0;
+}
+
+.acoes-formulario .botao:last-child {
+  margin-right: 0;
 }
