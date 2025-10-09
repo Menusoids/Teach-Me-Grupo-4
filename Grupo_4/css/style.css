@@ -536,6 +536,210 @@ a:hover {
   justify-content: space-between;
 }
 
+/* ====== CHAT COM PROFESSOR ====== */
+.cabecalho-chat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--azul-claro);
+}
+
+.info-professor-chat {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.foto-professora-chat {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--azul-medio);
+  background-color: var(--azul-claro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.foto-professora-chat img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.dados-professor-chat h1 {
+  margin: 0;
+  font-size: 20px;
+  color: var(--azul-medio);
+}
+
+.status-professor {
+  margin: 0;
+  font-size: 14px;
+  color: var(--preto);
+  opacity: 0.8;
+}
+
+.container-chat {
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  border: 2px solid var(--azul-claro);
+  border-radius: 12px;
+  background-color: var(--branco);
+  overflow: hidden;
+}
+
+.area-mensagens {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.mensagem-professor {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.mensagem-aluno {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex-direction: row-reverse;
+}
+
+.avatar-professor,
+.avatar-aluno {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.avatar-professor img,
+.avatar-aluno img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.conteudo-mensagem {
+  max-width: 70%;
+  background-color: var(--azul-claro);
+  padding: 12px 16px;
+  border-radius: 12px;
+  position: relative;
+}
+
+.mensagem-aluno .conteudo-mensagem {
+  background-color: var(--amarelo-claro);
+}
+
+.cabecalho-mensagem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.nome-professor,
+.nome-aluno {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--azul-medio);
+}
+
+.hora-mensagem {
+  font-size: 12px;
+  color: var(--preto);
+  opacity: 0.6;
+}
+
+.texto-mensagem {
+  color: var(--preto);
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.area-envio {
+  padding: 15px 20px;
+  border-top: 2px solid var(--azul-claro);
+  background-color: var(--branco);
+}
+
+.formulario-envio {
+  margin: 0;
+}
+
+.container-input {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.input-mensagem {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid var(--azul-claro);
+  border-radius: 25px;
+  font-family: 'Mulish', sans-serif;
+  font-size: 14px;
+  background-color: var(--branco);
+  color: var(--preto);
+  transition: border-color 0.2s ease;
+}
+
+.input-mensagem:focus {
+  outline: none;
+  border-color: var(--azul-medio);
+}
+
+.botao-enviar {
+  padding: 12px 20px;
+  background-color: var(--azul-medio);
+  color: var(--branco);
+  border: none;
+  border-radius: 25px;
+  font-family: 'Mulish', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.botao-enviar:hover {
+  background-color: var(--azul-claro);
+  color: var(--preto);
+}
+
+/* Scrollbar personalizada para área de mensagens */
+.area-mensagens::-webkit-scrollbar {
+  width: 6px;
+}
+
+.area-mensagens::-webkit-scrollbar-track {
+  background: var(--azul-claro);
+  border-radius: 3px;
+}
+
+.area-mensagens::-webkit-scrollbar-thumb {
+  background: var(--azul-medio);
+  border-radius: 3px;
+}
+
+.area-mensagens::-webkit-scrollbar-thumb:hover {
+  background: var(--amarelo-forte);
+}
+
 /* ====== FOTO PROFESSORA ====== */
 .container-professora {
   display: flex;
