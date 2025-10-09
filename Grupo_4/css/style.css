@@ -290,6 +290,43 @@ a:hover {
   text-decoration: none;
 }
 
+/* ====== FORMULÁRIOS E INPUTS ====== */
+.form__group {
+  margin-bottom: 16px;
+}
+
+.form__group label {
+  display: block;
+  font-weight: 500;
+  color: var(--azul-medio);
+  margin-bottom: 6px;
+}
+
+.form__input,
+.form__select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid var(--azul-claro);
+  border-radius: 6px;
+  font-family: 'Mulish', sans-serif;
+  font-size: 14px;
+  background-color: var(--branco);
+  color: var(--preto);
+  transition: border-color 0.2s ease;
+}
+
+.form__input:focus,
+.form__select:focus {
+  outline: none;
+  border-color: var(--azul-medio);
+  box-shadow: 0 0 0 3px rgba(82, 141, 204, 0.1);
+}
+
+.form__input:hover,
+.form__select:hover {
+  border-color: var(--azul-medio);
+}
+
 /* ====== MODAL ====== */
 .overlay {
   display: none;
