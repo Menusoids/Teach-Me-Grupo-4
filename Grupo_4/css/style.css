@@ -138,6 +138,26 @@ a:hover {
   padding: 0 16px; /* Alterado de 0 8px para 0 16px */
 }
 
+.rodape__config img {
+  width: 50px;
+  height: 50px;
+}
+
+.rodape__calend img {
+  width: 50px;
+  height: 50px;
+}
+
+.rodape__progresso img {
+  width: 50px;
+  height: 50px;
+}
+
+.rodape__mensagens img {
+  width: 50px;
+  height: 50px;
+}
+
 .link-rodape {
   font-weight: 600;
   color: var(--preto);
