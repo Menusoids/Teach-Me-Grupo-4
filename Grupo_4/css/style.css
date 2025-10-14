@@ -123,7 +123,7 @@ a:hover {
 .rodape {
   border-top: 2px solid var(--azul-medio);
   background-color: var(--azul-claro);
-  padding: 8px 0;
+  padding: 12px 0; /* Aumentado de 8px para 12px */
   width: 100%;
   box-sizing: border-box;
   position: fixed;
@@ -135,14 +135,14 @@ a:hover {
 .navegacao-rodape {
   display: flex;
   justify-content: space-around;
-  padding: 0 8px;
+  padding: 0 16px; /* Alterado de 0 8px para 0 16px */
 }
 
 .link-rodape {
   font-weight: 600;
   color: var(--preto);
-  font-size: 12px;
-  padding: 4px 2px;
+  font-size: 14px; /* Aumentado de 12px para 14px */
+  padding: 6px 4px; /* Aumentado de 4px 2px para 6px 4px */
   text-align: center;
 }
 
@@ -1009,4 +1009,69 @@ html, body {
 
 .acoes-formulario .botao:last-child {
   margin-right: 0;
+}
+
+@media (max-width: 375px) {
+  .pagina-inicial .conteudo-principal {
+    padding: 16px; /* Aumenta o espaçamento interno */
+  }
+
+  .pagina-inicial .titulo-secao {
+    font-size: 20px; /* Aumenta o tamanho do texto dos títulos */
+    margin-bottom: 20px; /* Adiciona mais espaço entre seções */
+  }
+
+  .pagina-inicial .botao {
+    font-size: 16px; /* Aumenta o tamanho do texto dos botões */
+    padding: 12px 18px; /* Aumenta o tamanho dos botões */
+  }
+
+  .pagina-inicial .lista {
+    padding-left: 24px; /* Ajusta o espaçamento da lista */
+  }
+
+  .pagina-inicial .item-lista {
+    font-size: 18px; /* Aumenta o tamanho do texto dos itens da lista */
+    margin-bottom: 10px; /* Adiciona mais espaço entre os itens */
+  }
+
+  .pagina-inicial .cabecalho__titulo {
+    font-size: 26px; /* Aumenta o tamanho do título principal */
+    margin-bottom: 24px; /* Adiciona mais espaço abaixo do título */
+  }
+
+  .pagina-inicial .rodape .link-rodape {
+    font-size: 14px; /* Aumenta o tamanho do texto dos links do rodapé */
+  }
+}
+
+/* CALENDÁRIO */
+@media (max-width: 375px) {
+  .pagina-calendario .conteudo-principal {
+    padding: 12px; /* Ajusta o espaçamento interno */
+  }
+
+  .pagina-calendario .titulo-secao {
+    font-size: 18px; /* Ajusta o tamanho do título */
+    margin-bottom: 16px; /* Espaçamento entre o título e o conteúdo */
+  }
+
+  .pagina-calendario .calendario {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* Garante que os dias fiquem em uma grade */
+    gap: 4px; /* Espaçamento entre os dias */
+  }
+
+  .pagina-calendario .calendario__dia {
+    font-size: 14px; /* Ajusta o tamanho do texto dos dias */
+    padding: 8px; /* Ajusta o tamanho dos blocos dos dias */
+    text-align: center; /* Centraliza o texto */
+    border: 1px solid #ccc; /* Adiciona uma borda para separar os dias */
+    border-radius: 4px; /* Bordas arredondadas */
+  }
+
+  .pagina-calendario .calendario__dia--hoje {
+    background-color: #f0f8ff; /* Destaque para o dia atual */
+    font-weight: bold;
+  }
 }

@@ -6,7 +6,7 @@
     <title>Calendário</title>
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <body>
+  <body class="pagina-calendario">
     <header class="cabecalho">
       <a href="index.html" class="cabecalho__casa">
         <img src="img/casa.png" alt="Início">
@@ -16,145 +16,45 @@
         <img src="img/pessoa.png" alt="Perfil">
       </a>
     </header>
-
+  
     <main class="conteudo-principal">
-      <h1 class="titulo-secao">Calendário - Setembro 2024</h1>
-
-      <div class="calendario-container">
-        <div class="cabecalho-calendario">
-          <div class="dias-semana">
-            <div class="dia-semana">Dom</div>
-            <div class="dia-semana">Seg</div>
-            <div class="dia-semana">Ter</div>
-            <div class="dia-semana">Qua</div>
-            <div class="dia-semana">Qui</div>
-            <div class="dia-semana">Sex</div>
-            <div class="dia-semana">Sáb</div>
-          </div>
+      <section class="secao">
+        <h1 class="titulo-secao">Calendário</h1>
+        <div class="calendario">
+          <div class="calendario__dia">1</div>
+          <div class="calendario__dia">2</div>
+          <div class="calendario__dia">3</div>
+          <div class="calendario__dia">4</div>
+          <div class="calendario__dia">5</div>
+          <div class="calendario__dia">6</div>
+          <div class="calendario__dia">7</div>
+          <div class="calendario__dia">8</div>
+          <div class="calendario__dia">9</div>
+          <div class="calendario__dia">10</div>
+          <div class="calendario__dia">11</div>
+          <div class="calendario__dia">12</div>
+          <div class="calendario__dia">13</div>
+          <div class="calendario__dia">14</div>
+          <div class="calendario__dia">15</div>
+          <div class="calendario__dia">16</div>
+          <div class="calendario__dia">17</div>
+          <div class="calendario__dia">18</div>
+          <div class="calendario__dia">19</div>
+          <div class="calendario__dia">20</div>
+          <div class="calendario__dia">21</div>
+          <div class="calendario__dia">22</div>
+          <div class="calendario__dia">23</div>
+          <div class="calendario__dia">24</div>
+          <div class="calendario__dia">25</div>
+          <div class="calendario__dia">26</div>
+          <div class="calendario__dia">27</div>
+          <div class="calendario__dia">28</div>
+          <div class="calendario__dia">29</div>
+          <div class="calendario__dia">30</div>
+          <div class="calendario__dia">31</div>
         </div>
-
-        <div class="grade-calendario">
-          <!-- Primeira semana -->
-          <div class="dia-calendario vazio"></div>
-          <div class="dia-calendario vazio"></div>
-          <div class="dia-calendario vazio"></div>
-          <div class="dia-calendario vazio"></div>
-          <div class="dia-calendario vazio"></div>
-          <div class="dia-calendario vazio"></div>
-          <div class="dia-calendario">
-            <span class="numero-dia">1</span>
-          </div>
-
-          <!-- Segunda semana -->
-          <div class="dia-calendario">
-            <span class="numero-dia">2</span>
-          </div>
-          <div class="dia-calendario">
-            <span class="numero-dia">3</span>
-          </div>
-          <div class="dia-calendario">
-            <span class="numero-dia">4</span>
-          </div>
-          <div class="dia-calendario">
-            <span class="numero-dia">5</span>
-          </div>
-          <div class="dia-calendario">
-            <span class="numero-dia">6</span>
-          </div>
-          <div class="dia-calendario">
-            <span class="numero-dia">7</span>
-          </div>
-          <div class="dia-calendario">
-            <span class="numero-dia">8</span>
-          </div>
-
-          <!-- Terceira semana -->
-          <div class="dia-calendario">
-            <span class="numero-dia">9</span>
-          </div>
-          <div class="dia-calendario">
-            <span class="numero-dia">10</span>
-          </div>
-          <div class="dia-calendario">
-            <span class="numero-dia">11</span>
-          </div>
-          <div class="dia-calendario">
-            <span class="numero-dia">12</span>
-          </div>
-          <div class="dia-calendario">
-            <span class="numero-dia">13</span>
-          </div>
-          <div class="dia-calendario">
-            <span class="numero-dia">14</span>
-          </div>
-          <div class="dia-calendario">
-            <span class="numero-dia">15</span>
-          </div>
-
-          <!-- Quarta semana -->
-          <div class="dia-calendario">
-            <span class="numero-dia">16</span>
-          </div>
-          <div class="dia-calendario">
-            <span class="numero-dia">17</span>
-          </div>
-          <div class="dia-calendario">
-            <span class="numero-dia">18</span>
-          </div>
-          <div class="dia-calendario">
-            <span class="numero-dia">19</span>
-          </div>
-          <div class="dia-calendario">
-            <span class="numero-dia">20</span>
-          </div>
-          <div class="dia-calendario">
-            <span class="numero-dia">21</span>
-          </div>
-          <div class="dia-calendario">
-            <span class="numero-dia">22</span>
-          </div>
-
-          <!-- Quinta semana -->
-          <div class="dia-calendario">
-            <span class="numero-dia">23</span>
-          </div>
-          <div class="dia-calendario">
-            <span class="numero-dia">24</span>
-          </div>
-          <div class="dia-calendario">
-            <span class="numero-dia">25</span>
-          </div>
-          <div class="dia-calendario">
-            <span class="numero-dia">26</span>
-            <div class="evento-aula">Matemática<br>14:00 - Prof. Maria</div>
-          </div>
-          <div class="dia-calendario">
-            <span class="numero-dia">27</span>
-            <div class="evento-entrega">Redação<br>Prazo</div>
-          </div>
-          <div class="dia-calendario">
-            <span class="numero-dia">28</span>
-            <div class="evento-aula">Física<br>10:00 - Prof. João</div>
-          </div>
-          <div class="dia-calendario">
-            <span class="numero-dia">29</span>
-            <div class="evento-entrega">Lista de exercícios<br>Prazo</div>
-          </div>
-
-          <!-- Sexta semana -->
-          <div class="dia-calendario">
-            <span class="numero-dia">30</span>
-            <div class="evento-aula">Programação<br>16:00 - Prof. Maria</div>
-          </div>
-          <div class="dia-calendario vazio"></div>
-          <div class="dia-calendario vazio"></div>
-          <div class="dia-calendario vazio"></div>
-          <div class="dia-calendario vazio"></div>
-          <div class="dia-calendario vazio"></div>
-          <div class="dia-calendario vazio"></div>
-        </div>
-      </div>
-
+      </section>
+  
       <div class="legenda-calendario">
         <h3 class="titulo-secao">Legenda</h3>
         <div class="itens-legenda">
@@ -169,6 +69,7 @@
         </div>
       </div>
     </main>
+  
     <footer class="rodape">
       <nav class="navegacao-rodape">
         <a href="configuracoes.html" class="link-rodape">Configurações</a>
