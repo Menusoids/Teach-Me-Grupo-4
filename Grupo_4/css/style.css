@@ -59,14 +59,14 @@ a:hover {
 }
 
 .cabecalho__titulo {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
   color: var(--preto);
 }
 
 .cabecalho__casa img {
-  width: 32px;
-  height: 32px;
+  width: 50px;
+  height: 50px;
 }
 
 .cabecalho__pessoa img {
