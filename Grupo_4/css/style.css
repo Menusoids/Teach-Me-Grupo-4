@@ -75,11 +75,28 @@ a:hover {
 }
 
 .pessoa__grande img {
-  width: 300px;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 200px; /* Define a largura inicial da imagem */
+  height: 200px; /* Define a altura inicial da imagem */
+  display: block; /* Garante que a imagem seja tratada como um bloco */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  transform: scale(1.2); /* Aumenta a imagem em 20% */
+  transform-origin: center; /* Define o ponto de escala como o centro da imagem */
+}
+
+.pagina-configmensagem .lista .botao .botao-principal{
+  color: #fff; /* Define a cor do texto como branco */
+}
+
+.lista.pagina-configmensagem .botao {
+  color: #fff; /* Define a cor do texto como branco */
+  background-color: var(--azul-medio); /* (Opcional) Ajusta a cor de fundo do botão */
+  border: none; /* Remove bordas, se necessário */
+  text-align: center; /* Centraliza o texto */
+}
+
+.lista.pagina-configmensagem .botao a {
+  color: inherit; /* Garante que o link herde a cor branca do botão */
+  text-decoration: none; /* Remove o sublinhado do link */
 }
 
 /* ====== CONTEUDO PRINCIPAL ====== */
@@ -176,6 +193,13 @@ a:hover {
 
 .link-rodape:hover {
   color: var(--amarelo-forte);
+}
+
+/* ====== PERFIL ====== */
+.secao-perfil {
+  display: flex;
+  align-items: center; /* Alinha verticalmente no centro */
+  gap: 8px; /* Espaçamento entre os textos */
 }
 
 /* ====== BOTÕES ====== */
