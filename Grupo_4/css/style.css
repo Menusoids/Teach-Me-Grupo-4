@@ -219,6 +219,22 @@ a:hover {
   justify-content: center;
 }
 
+.botao_index {
+  display: inline-block;
+  padding: 20px 12px;
+  border-radius: 6px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.2s ease;
+  font-size: 20px;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .botao-principal {
   background-color: var(--azul-medio);
   color: var(--branco);
