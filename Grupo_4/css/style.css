@@ -880,6 +880,7 @@ a:hover {
   margin-bottom: 20px;
   width: 100%;
   box-sizing: border-box;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .cabecalho-calendario {
@@ -893,11 +894,11 @@ a:hover {
 }
 
 .dia-semana {
-  padding: 12px 8px;
+  padding: 12px 4px;
   text-align: center;
   font-weight: 600;
-  font-size: 14px;
-  border-right: 1px solid var(--azul-claro);
+  font-size: 12px;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .dia-semana:last-child {
@@ -913,44 +914,84 @@ a:hover {
 
 .dia-calendario {
   background-color: var(--branco);
-  min-height: 80px;
-  padding: 8px;
+  min-height: 45px;
+  padding: 4px;
   display: flex;
   flex-direction: column;
   position: relative;
+  border: 1px solid var(--azul-claro);
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.dia-calendario:hover {
+  background-color: var(--azul-claro);
 }
 
 .dia-calendario.vazio {
   background-color: var(--bege);
+  opacity: 0.5;
 }
 
 .numero-dia {
   font-weight: 600;
-  font-size: 14px;
+  font-size: 12px;
   color: var(--azul-medio);
-  margin-bottom: 4px;
+  margin-bottom: 2px;
+  text-align: center;
+}
+
+/* Pontinhos coloridos */
+.ponto-evento {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-top: auto;
+}
+
+.ponto-azul {
+  background-color: var(--azul-claro);
+}
+
+.ponto-amarelo {
+  background-color: var(--amarelo-claro);
+}
+
+/* Estilo para o conteúdo do modal */
+.texto-modal p {
+  margin-bottom: 8px;
+  color: var(--preto);
+}
+
+.texto-modal strong {
+  color: var(--azul-medio);
+  font-weight: 600;
 }
 
 .evento-aula {
   background-color: var(--azul-claro);
   color: var(--azul-medio);
-  padding: 4px 6px;
-  border-radius: 4px;
-  font-size: 11px;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 9px;
   font-weight: 500;
   line-height: 1.2;
   margin-top: auto;
+  text-align: center;
 }
 
 .evento-entrega {
   background-color: var(--amarelo-claro);
   color: var(--preto);
-  padding: 4px 6px;
-  border-radius: 4px;
-  font-size: 11px;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 9px;
   font-weight: 500;
   line-height: 1.2;
   margin-top: auto;
+  text-align: center;
 }
 
 .legenda-calendario {
@@ -1113,33 +1154,72 @@ html, body {
   }
 }
 
-/* CALENDÁRIO */
+/* CALENDÁRIO - RESPONSIVIDADE PARA IPHONE SE */
 @media (max-width: 375px) {
   .pagina-calendario .conteudo-principal {
-    padding: 12px; /* Ajusta o espaçamento interno */
+    padding: 6px;
+    overflow-x: hidden;
   }
 
   .pagina-calendario .titulo-secao {
-    font-size: 18px; /* Ajusta o tamanho do título */
-    margin-bottom: 16px; /* Espaçamento entre o título e o conteúdo */
+    font-size: 16px;
+    margin-bottom: 10px;
   }
 
-  .pagina-calendario .calendario {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr); /* Garante que os dias fiquem em uma grade */
-    gap: 4px; /* Espaçamento entre os dias */
+  .calendario-container {
+    margin-bottom: 12px;
+    border-radius: 6px;
+    overflow: hidden;
   }
 
-  .pagina-calendario .calendario__dia {
-    font-size: 14px; /* Ajusta o tamanho do texto dos dias */
-    padding: 8px; /* Ajusta o tamanho dos blocos dos dias */
-    text-align: center; /* Centraliza o texto */
-    border: 1px solid #ccc; /* Adiciona uma borda para separar os dias */
-    border-radius: 4px; /* Bordas arredondadas */
+  .dia-semana {
+    padding: 6px 1px;
+    font-size: 9px;
   }
 
-  .pagina-calendario .calendario__dia--hoje {
-    background-color: #f0f8ff; /* Destaque para o dia atual */
-    font-weight: bold;
+  .dia-calendario {
+    min-height: 30px;
+    padding: 2px;
+  }
+
+  .numero-dia {
+    font-size: 9px;
+    margin-bottom: 1px;
+  }
+
+  .ponto-evento {
+    width: 6px;
+    height: 6px;
+  }
+
+  .evento-aula,
+  .evento-entrega {
+    font-size: 7px;
+    padding: 1px 2px;
+    border-radius: 2px;
+  }
+
+  .legenda-calendario {
+    padding: 10px;
+    border-radius: 6px;
+  }
+
+  .legenda-calendario h3 {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .itens-legenda {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .item-legenda {
+    font-size: 11px;
+  }
+
+  .cor-legenda {
+    width: 10px;
+    height: 10px;
   }
 }
