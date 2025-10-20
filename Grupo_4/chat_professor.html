@@ -31,7 +31,7 @@
         </div>
         
         <nav class="navegacao-principal">
-          <a href="#" id="botao-voltar" class="botao botao-secundario">← Voltar</a>
+          <a href="mensagens.html" class="botao botao-secundario">← Voltar</a>
         </nav>
       </div>
 
@@ -154,22 +154,5 @@
       </nav>
     </footer>
 
-    <script>
-      // Função simples para voltar à página anterior
-      document.getElementById('botao-voltar').addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // Obter parâmetros da URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const paginaVoltar = urlParams.get('voltar');
-        
-        if (paginaVoltar) {
-          window.location.href = paginaVoltar + '.html';
-        } else {
-          // Fallback para página anterior no histórico
-          window.history.back();
-        }
-      });
-    </script>
   </body>
 </html>
