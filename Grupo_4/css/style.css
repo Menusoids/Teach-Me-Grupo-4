@@ -123,6 +123,149 @@ a:hover {
   color: var(--azul-medio);
 }
 
+.mensagem-erro {
+  background-color: #ffcccc;
+  color: #cc0000;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  border: 2px solid #cc0000;
+  font-weight: 500;
+}
+
+.detalhes-agendamento {
+  background-color: var(--azul-claro);
+  padding: 16px;
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+.detalhes-agendamento p {
+  margin-bottom: 8px;
+}
+
+.detalhes-agendamento strong {
+  color: var(--azul-medio);
+}
+
+.info-agendamento-modal {
+  background-color: var(--azul-claro);
+  padding: 12px;
+  border-radius: 6px;
+  margin: 12px 0;
+}
+
+.info-agendamento-modal p {
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.info-agendamento-modal strong {
+  color: var(--azul-medio);
+}
+
+/* ====== BUSCA RÁPIDA ====== */
+.busca-rapida {
+  margin-bottom: 20px;
+}
+
+.formulario-busca {
+  background-color: var(--branco);
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.container-busca {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: stretch;
+}
+
+.input-busca {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid var(--azul-claro);
+  border-radius: 6px;
+  font-family: 'Mulish', sans-serif;
+  font-size: 14px;
+  background-color: var(--branco);
+  color: var(--preto);
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.input-busca:focus {
+  outline: none;
+  border-color: var(--azul-medio);
+  box-shadow: 0 0 0 3px rgba(82, 141, 204, 0.1);
+}
+
+.input-busca:hover {
+  border-color: var(--azul-medio);
+}
+
+.botao-busca {
+  width: 100%;
+  white-space: nowrap;
+}
+
+/* Para telas maiores, voltar ao layout horizontal */
+@media (min-width: 480px) {
+  .container-busca {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .input-busca {
+    flex: 1;
+    width: auto;
+  }
+  
+  .botao-busca {
+    flex-shrink: 0;
+    min-width: 100px;
+    width: auto;
+  }
+}
+
+/* ====== BOTÃO CRIAR EVENTO ====== */
+.botao-criar-evento {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--azul-medio);
+  color: var(--branco);
+  border: none;
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  line-height: 1;
+  padding: 0;
+}
+
+.botao-criar-evento:hover {
+  background-color: var(--azul-claro);
+  color: var(--preto);
+  transform: scale(1.1);
+}
+
+.botao-criar-evento:active {
+  transform: scale(0.95);
+}
+
 .link-principal {
   font-weight: 500;
   color: var(--azul-medio);
@@ -252,6 +395,18 @@ a:hover {
 
 .botao-secundario:hover {
   background-color: var(--amarelo-claro);
+}
+
+.botao-desabilitado {
+  background-color: #cccccc !important;
+  color: #666666 !important;
+  cursor: not-allowed !important;
+  pointer-events: none;
+}
+
+.botao-desabilitado:hover {
+  background-color: #cccccc !important;
+  color: #666666 !important;
 }
 
 /* ====== FORMULÁRIOS ====== */
@@ -419,7 +574,8 @@ a:hover {
 }
 
 .input-formulario,
-.select-formulario {
+.select-formulario,
+textarea.input-formulario {
   width: 100%;
   padding: 8px 10px;
   border: 2px solid var(--azul-claro);
@@ -430,6 +586,7 @@ a:hover {
   color: var(--preto);
   transition: border-color 0.2s ease;
   box-sizing: border-box;
+  resize: vertical;
 }
 
 .input-formulario:focus,

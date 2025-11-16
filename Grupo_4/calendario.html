@@ -53,6 +53,75 @@
       </div>
     </main>
 
+    <!-- Botão flutuante para criar evento -->
+    <button id="botao-criar-evento" class="botao-criar-evento" aria-label="Criar novo evento">+</button>
+
+    <!-- Modal para criar evento -->
+    <div id="modal-criar-evento" class="fundo-modal" style="display: none;">
+      <div class="modal">
+        <header class="cabecalho-modal">
+          <h2 class="titulo-modal">Criar Evento</h2>
+          <a href="#" class="fechar-modal" id="fechar-modal-criar">✖</a>
+        </header>
+        <div class="texto-modal">
+          <form id="form-criar-evento">
+            <div class="grupo-formulario">
+              <label>Dia:
+                <input type="number" min="1" max="31" required class="input-formulario" id="input-dia" placeholder="Ex: 15">
+              </label>
+            </div>
+            <div class="grupo-formulario">
+              <label>Mês:
+                <select required class="select-formulario" id="select-mes">
+                  <option value="">Selecione…</option>
+                  <option value="0">Janeiro</option>
+                  <option value="1">Fevereiro</option>
+                  <option value="2">Março</option>
+                  <option value="3">Abril</option>
+                  <option value="4">Maio</option>
+                  <option value="5">Junho</option>
+                  <option value="6">Julho</option>
+                  <option value="7">Agosto</option>
+                  <option value="8">Setembro</option>
+                  <option value="9">Outubro</option>
+                  <option value="10">Novembro</option>
+                  <option value="11">Dezembro</option>
+                </select>
+              </label>
+            </div>
+            <div class="grupo-formulario">
+              <label>Ano:
+                <input type="number" min="2024" max="2100" required class="input-formulario" id="input-ano" placeholder="Ex: 2024">
+              </label>
+            </div>
+            <div class="grupo-formulario">
+              <label>Título do Evento:
+                <input type="text" required class="input-formulario" id="input-titulo" placeholder="Ex: Prova de Matemática">
+              </label>
+            </div>
+            <div class="grupo-formulario">
+              <label>Descrição:
+                <textarea class="input-formulario" id="input-descricao" rows="3" placeholder="Descrição do evento (opcional)"></textarea>
+              </label>
+            </div>
+            <div class="grupo-formulario">
+              <label>Tipo de Evento:
+                <select required class="select-formulario" id="select-tipo">
+                  <option value="">Selecione…</option>
+                  <option value="aula">Aula</option>
+                  <option value="entrega">Entrega</option>
+                </select>
+              </label>
+            </div>
+          </form>
+        </div>
+        <div class="acoes-modal">
+          <button type="button" id="botao-confirmar-evento" class="botao botao-principal botao-desabilitado">Confirmar</button>
+          <a href="#" class="botao botao-secundario" id="cancelar-criar-evento">Cancelar</a>
+        </div>
+      </div>
+    </div>
+
     <footer class="rodape">
       <nav class="navegacao-rodape">
         <a href="configuracoes.html" class="rodape__config">

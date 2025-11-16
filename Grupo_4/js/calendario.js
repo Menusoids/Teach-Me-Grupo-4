@@ -1,46 +1,76 @@
-// Base de dados de eventos (aulas e entregas)
-const eventos = [
-  {
-    dia: 26,
-    tipo: 'aula',
-    titulo: 'Matemática',
-    horario: '14:00',
-    professor: 'Prof. Maria',
-    materia: 'Matemática'
-  },
-  {
-    dia: 27,
-    tipo: 'entrega',
-    titulo: 'Redação',
-    prazo: '23:59',
-    atividade: 'Redação',
-    professor: 'Prof. João'
-  },
-  {
-    dia: 28,
-    tipo: 'aula',
-    titulo: 'Física',
-    horario: '10:00',
-    professor: 'Prof. João',
-    materia: 'Física'
-  },
-  {
-    dia: 29,
-    tipo: 'entrega',
-    titulo: 'Lista de exercícios',
-    prazo: '23:59',
-    atividade: 'Lista de exercícios',
-    professor: 'Prof. Maria'
-  },
-  {
-    dia: 30,
-    tipo: 'aula',
-    titulo: 'Programação',
-    horario: '16:00',
-    professor: 'Prof. Maria',
-    materia: 'Programação'
+// Função para carregar eventos do localStorage
+function carregarEventos() {
+  const eventosSalvos = localStorage.getItem('eventosCalendario');
+  if (eventosSalvos) {
+    return JSON.parse(eventosSalvos);
   }
-];
+  // Eventos padrão iniciais
+  return [
+    {
+      dia: 26,
+      mes: new Date().getMonth(),
+      ano: new Date().getFullYear(),
+      tipo: 'aula',
+      titulo: 'Matemática',
+      horario: '14:00',
+      professor: 'Prof. Maria',
+      materia: 'Matemática',
+      descricao: ''
+    },
+    {
+      dia: 27,
+      mes: new Date().getMonth(),
+      ano: new Date().getFullYear(),
+      tipo: 'entrega',
+      titulo: 'Redação',
+      prazo: '23:59',
+      atividade: 'Redação',
+      professor: 'Prof. João',
+      descricao: ''
+    },
+    {
+      dia: 28,
+      mes: new Date().getMonth(),
+      ano: new Date().getFullYear(),
+      tipo: 'aula',
+      titulo: 'Física',
+      horario: '10:00',
+      professor: 'Prof. João',
+      materia: 'Física',
+      descricao: ''
+    },
+    {
+      dia: 29,
+      mes: new Date().getMonth(),
+      ano: new Date().getFullYear(),
+      tipo: 'entrega',
+      titulo: 'Lista de exercícios',
+      prazo: '23:59',
+      atividade: 'Lista de exercícios',
+      professor: 'Prof. Maria',
+      descricao: ''
+    },
+    {
+      dia: 30,
+      mes: new Date().getMonth(),
+      ano: new Date().getFullYear(),
+      tipo: 'aula',
+      titulo: 'Programação',
+      horario: '16:00',
+      professor: 'Prof. Maria',
+      materia: 'Programação',
+      descricao: ''
+    }
+  ];
+}
+
+// Função para salvar eventos no localStorage
+function salvarEventos(eventos) {
+  localStorage.setItem('eventosCalendario', JSON.stringify(eventos));
+}
+
+// Carregar eventos
+let eventos = carregarEventos();
 
 // Função para obter o primeiro dia da semana do mês
 function obterPrimeiroDiaSemana(ano, mes) {
@@ -62,13 +92,17 @@ function obterNomeMes(mes) {
 }
 
 // Função para obter eventos de um dia específico
-function obterEventosDoDia(dia) {
-  return eventos.filter(evento => evento.dia === dia);
+function obterEventosDoDia(dia, mes, ano) {
+  return eventos.filter(evento => 
+    evento.dia === dia && 
+    evento.mes === mes && 
+    evento.ano === ano
+  );
 }
 
 // Função para criar modal de evento
 function criarModal(evento, dia, mes, ano) {
-  const modalId = `modal-dia-${dia}`;
+  const modalId = `modal-dia-${dia}-${mes}-${ano}`;
   const nomeMes = obterNomeMes(mes);
   
   let conteudoModal = '';
@@ -80,10 +114,11 @@ function criarModal(evento, dia, mes, ano) {
         <a href="#" class="fechar-modal">×</a>
       </div>
       <div class="texto-modal">
-        <p><strong>Horário:</strong> ${evento.horario}</p>
+        <p><strong>Horário:</strong> ${evento.horario || 'Não especificado'}</p>
         <p><strong>Tipo:</strong> Aula</p>
-        <p><strong>Matéria:</strong> ${evento.materia}</p>
-        <p><strong>Professor:</strong> ${evento.professor}</p>
+        ${evento.materia ? `<p><strong>Matéria:</strong> ${evento.materia}</p>` : ''}
+        ${evento.professor ? `<p><strong>Professor:</strong> ${evento.professor}</p>` : ''}
+        ${evento.descricao ? `<p><strong>Descrição:</strong> ${evento.descricao}</p>` : ''}
       </div>
     `;
   } else {
@@ -93,10 +128,11 @@ function criarModal(evento, dia, mes, ano) {
         <a href="#" class="fechar-modal">×</a>
       </div>
       <div class="texto-modal">
-        <p><strong>Prazo:</strong> ${evento.prazo}</p>
+        <p><strong>Prazo:</strong> ${evento.prazo || 'Não especificado'}</p>
         <p><strong>Tipo:</strong> Entrega</p>
-        <p><strong>Atividade:</strong> ${evento.atividade}</p>
-        <p><strong>Professor:</strong> ${evento.professor}</p>
+        ${evento.atividade ? `<p><strong>Atividade:</strong> ${evento.atividade}</p>` : ''}
+        ${evento.professor ? `<p><strong>Professor:</strong> ${evento.professor}</p>` : ''}
+        ${evento.descricao ? `<p><strong>Descrição:</strong> ${evento.descricao}</p>` : ''}
       </div>
     `;
   }
@@ -152,7 +188,7 @@ function gerarCalendario() {
     diaElement.appendChild(numeroDia);
     
     // Verificar se há eventos neste dia
-    const eventosDoDia = obterEventosDoDia(dia);
+    const eventosDoDia = obterEventosDoDia(dia, mes, ano);
     
     if (eventosDoDia.length > 0) {
       // Adicionar classe para indicar que tem evento
@@ -189,7 +225,8 @@ function gerarCalendario() {
 // Função para abrir modal
 function abrirModal(evento, dia, mes, ano) {
   // Remover modal existente se houver
-  const modalExistente = document.getElementById('modal-dia-' + dia);
+  const modalId = `modal-dia-${dia}-${mes}-${ano}`;
+  const modalExistente = document.getElementById(modalId);
   if (modalExistente) {
     modalExistente.remove();
   }
@@ -199,7 +236,7 @@ function abrirModal(evento, dia, mes, ano) {
   document.body.insertAdjacentHTML('beforeend', modalHTML);
   
   // Abrir modal
-  const modal = document.getElementById('modal-dia-' + dia);
+  const modal = document.getElementById(modalId);
   if (modal) {
     // Usar setTimeout para garantir que o DOM foi atualizado
     setTimeout(function() {
@@ -230,8 +267,152 @@ function abrirModal(evento, dia, mes, ano) {
   }
 }
 
+// Função para validar campos do formulário de evento
+function validarFormularioEvento() {
+  const dia = document.getElementById('input-dia').value;
+  const mes = document.getElementById('select-mes').value;
+  const ano = document.getElementById('input-ano').value;
+  const titulo = document.getElementById('input-titulo').value.trim();
+  const tipo = document.getElementById('select-tipo').value;
+  
+  return dia && mes !== '' && ano && titulo && tipo;
+}
+
+// Função para atualizar estado do botão confirmar
+function atualizarEstadoBotaoConfirmar() {
+  const botaoConfirmar = document.getElementById('botao-confirmar-evento');
+  if (!botaoConfirmar) return;
+  
+  if (validarFormularioEvento()) {
+    botaoConfirmar.classList.remove('botao-desabilitado');
+    botaoConfirmar.disabled = false;
+    botaoConfirmar.style.pointerEvents = 'auto';
+    botaoConfirmar.style.cursor = 'pointer';
+  } else {
+    botaoConfirmar.classList.add('botao-desabilitado');
+    botaoConfirmar.disabled = true;
+    botaoConfirmar.style.pointerEvents = 'none';
+    botaoConfirmar.style.cursor = 'not-allowed';
+  }
+}
+
+// Função para criar novo evento
+function criarNovoEvento() {
+  const dia = parseInt(document.getElementById('input-dia').value);
+  const mes = parseInt(document.getElementById('select-mes').value);
+  const ano = parseInt(document.getElementById('input-ano').value);
+  const titulo = document.getElementById('input-titulo').value.trim();
+  const descricao = document.getElementById('input-descricao').value.trim();
+  const tipo = document.getElementById('select-tipo').value;
+  
+  // Validar data
+  const data = new Date(ano, mes, dia);
+  if (data.getDate() !== dia || data.getMonth() !== mes || data.getFullYear() !== ano) {
+    alert('Data inválida!');
+    return;
+  }
+  
+  // Criar objeto do evento
+  const novoEvento = {
+    dia: dia,
+    mes: mes,
+    ano: ano,
+    tipo: tipo,
+    titulo: titulo,
+    descricao: descricao
+  };
+  
+  // Adicionar campos específicos por tipo
+  if (tipo === 'aula') {
+    novoEvento.horario = 'Não especificado';
+    novoEvento.materia = titulo;
+  } else {
+    novoEvento.prazo = '23:59';
+    novoEvento.atividade = titulo;
+  }
+  
+  // Adicionar evento à lista
+  eventos.push(novoEvento);
+  
+  // Salvar no localStorage
+  salvarEventos(eventos);
+  
+  // Fechar modal
+  const modal = document.getElementById('modal-criar-evento');
+  if (modal) {
+    modal.style.display = 'none';
+  }
+  
+  // Limpar formulário
+  document.getElementById('form-criar-evento').reset();
+  atualizarEstadoBotaoConfirmar();
+  
+  // Regenerar calendário
+  gerarCalendario();
+}
+
 // Executar quando a página carregar
 window.addEventListener('DOMContentLoaded', function() {
   gerarCalendario();
+  
+  // Botão criar evento
+  const botaoCriarEvento = document.getElementById('botao-criar-evento');
+  const modalCriarEvento = document.getElementById('modal-criar-evento');
+  const fecharModalCriar = document.getElementById('fechar-modal-criar');
+  const cancelarCriarEvento = document.getElementById('cancelar-criar-evento');
+  const botaoConfirmarEvento = document.getElementById('botao-confirmar-evento');
+  
+  // Abrir modal ao clicar no botão +
+  if (botaoCriarEvento && modalCriarEvento) {
+    botaoCriarEvento.addEventListener('click', function() {
+      modalCriarEvento.style.display = 'block';
+      atualizarEstadoBotaoConfirmar();
+    });
+  }
+  
+  // Fechar modal ao clicar no X
+  if (fecharModalCriar && modalCriarEvento) {
+    fecharModalCriar.addEventListener('click', function(e) {
+      e.preventDefault();
+      modalCriarEvento.style.display = 'none';
+    });
+  }
+  
+  // Fechar modal ao clicar em cancelar
+  if (cancelarCriarEvento && modalCriarEvento) {
+    cancelarCriarEvento.addEventListener('click', function(e) {
+      e.preventDefault();
+      modalCriarEvento.style.display = 'none';
+    });
+  }
+  
+  // Fechar modal ao clicar fora
+  if (modalCriarEvento) {
+    modalCriarEvento.addEventListener('click', function(e) {
+      if (e.target === modalCriarEvento) {
+        modalCriarEvento.style.display = 'none';
+      }
+    });
+  }
+  
+  // Validar formulário em tempo real
+  const camposFormulario = ['input-dia', 'select-mes', 'input-ano', 'input-titulo', 'select-tipo'];
+  camposFormulario.forEach(id => {
+    const campo = document.getElementById(id);
+    if (campo) {
+      campo.addEventListener('input', atualizarEstadoBotaoConfirmar);
+      campo.addEventListener('change', atualizarEstadoBotaoConfirmar);
+    }
+  });
+  
+  // Confirmar criação de evento
+  if (botaoConfirmarEvento) {
+    botaoConfirmarEvento.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (validarFormularioEvento()) {
+        criarNovoEvento();
+      }
+    });
+  }
 });
 
