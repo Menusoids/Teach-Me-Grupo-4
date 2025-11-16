@@ -33,113 +33,8 @@
               <div class="dia-semana">Sáb</div>
             </div>
           </div>
-          <div class="grade-calendario">
-            <div class="dia-calendario vazio"></div>
-            <div class="dia-calendario vazio"></div>
-            <div class="dia-calendario vazio"></div>
-            <div class="dia-calendario vazio"></div>
-            <div class="dia-calendario vazio"></div>
-            <div class="dia-calendario vazio"></div>
-            <div class="dia-calendario">
-              <div class="numero-dia">1</div>
-            </div>
-            <div class="dia-calendario">
-              <div class="numero-dia">2</div>
-            </div>
-            <div class="dia-calendario">
-              <div class="numero-dia">3</div>
-            </div>
-            <div class="dia-calendario">
-              <div class="numero-dia">4</div>
-            </div>
-            <div class="dia-calendario" data-dia="5">
-              <div class="numero-dia">5</div>
-            </div>
-            <div class="dia-calendario" data-dia="6">
-              <div class="numero-dia">6</div>
-            </div>
-            <div class="dia-calendario" data-dia="7">
-              <div class="numero-dia">7</div>
-            </div>
-            <div class="dia-calendario" data-dia="8">
-              <div class="numero-dia">8</div>
-            </div>
-            <div class="dia-calendario" data-dia="9">
-              <div class="numero-dia">9</div>
-            </div>
-            <div class="dia-calendario" data-dia="10">
-              <div class="numero-dia">10</div>
-            </div>
-            <div class="dia-calendario" data-dia="11">
-              <div class="numero-dia">11</div>
-            </div>
-            <div class="dia-calendario" data-dia="12">
-              <div class="numero-dia">12</div>
-            </div>
-            <div class="dia-calendario" data-dia="13">
-              <div class="numero-dia">13</div>
-            </div>
-            <div class="dia-calendario" data-dia="14">
-              <div class="numero-dia">14</div>
-            </div>
-            <div class="dia-calendario" data-dia="15">
-              <div class="numero-dia">15</div>
-            </div>
-            <div class="dia-calendario" data-dia="16">
-              <div class="numero-dia">16</div>
-            </div>
-            <div class="dia-calendario" data-dia="17">
-              <div class="numero-dia">17</div>
-            </div>
-            <div class="dia-calendario" data-dia="18">
-              <div class="numero-dia">18</div>
-            </div>
-            <div class="dia-calendario" data-dia="19">
-              <div class="numero-dia">19</div>
-            </div>
-            <div class="dia-calendario" data-dia="20">
-              <div class="numero-dia">20</div>
-            </div>
-            <div class="dia-calendario" data-dia="21">
-              <div class="numero-dia">21</div>
-            </div>
-            <div class="dia-calendario" data-dia="22">
-              <div class="numero-dia">22</div>
-            </div>
-            <div class="dia-calendario" data-dia="23">
-              <div class="numero-dia">23</div>
-            </div>
-            <div class="dia-calendario" data-dia="24">
-              <div class="numero-dia">24</div>
-            </div>
-            <a href="#modal-dia-25" class="dia-calendario" data-dia="25">
-              <div class="numero-dia">25</div>
-              <div class="ponto-evento ponto-azul"></div>
-            </a>
-            <div class="dia-calendario" data-dia="26">
-              <div class="numero-dia">26</div>
-            </div>
-            <a href="#modal-dia-27" class="dia-calendario" data-dia="27">
-              <div class="numero-dia">27</div>
-              <div class="ponto-evento ponto-amarelo"></div>
-            </a>
-            <div class="dia-calendario" data-dia="28">
-              <div class="numero-dia">28</div>
-            </div>
-            <div class="dia-calendario" data-dia="29">
-              <div class="numero-dia">29</div>
-            </div>
-            <div class="dia-calendario" data-dia="30">
-              <div class="numero-dia">30</div>
-            </div>
-            <div class="dia-calendario" data-dia="31">
-              <div class="numero-dia">31</div>
-            </div>
-            <div class="dia-calendario vazio"></div>
-            <div class="dia-calendario vazio"></div>
-            <div class="dia-calendario vazio"></div>
-            <div class="dia-calendario vazio"></div>
-            <div class="dia-calendario vazio"></div>
+          <div class="grade-calendario" id="grade-calendario">
+            <!-- Calendário será gerado dinamicamente via JavaScript -->
           </div>
         </div>
       </section>
@@ -159,40 +54,6 @@
       </div>
     </main>
 
-    <!-- Modal para dia 25 -->
-    <div class="fundo-modal" id="modal-dia-25">
-      <div class="modal">
-        <div class="cabecalho-modal">
-          <h3 class="titulo-modal">Dia 25 - Aula de Matemática</h3>
-          <a href="#" class="fechar-modal">×</a>
-        </div>
-        <div class="texto-modal">
-          <p><strong>Horário:</strong> 14:00</p>
-          <p><strong>Tipo:</strong> Aula</p>
-          <p><strong>Matéria:</strong> Matemática</p>
-          <p><strong>Professor:</strong> Ana Silva</p>
-          <p><strong>Sala:</strong> 205</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal para dia 27 -->
-    <div class="fundo-modal" id="modal-dia-27">
-      <div class="modal">
-        <div class="cabecalho-modal">
-          <h3 class="titulo-modal">Dia 27 - Entrega de Trabalho</h3>
-          <a href="#" class="fechar-modal">×</a>
-        </div>
-        <div class="texto-modal">
-          <p><strong>Prazo:</strong> 23:59</p>
-          <p><strong>Tipo:</strong> Entrega</p>
-          <p><strong>Atividade:</strong> Trabalho de História</p>
-          <p><strong>Valor:</strong> 10 pontos</p>
-          <p><strong>Professor:</strong> Carlos Santos</p>
-        </div>
-      </div>
-    </div>
-  
     <footer class="rodape">
       <nav class="navegacao-rodape">
         <a href="configuracoes.html" class="rodape__config">
@@ -209,5 +70,6 @@
         </a>
       </nav>
     </footer>
+    <script src="js/calendario.js"></script>
   </body>
 </html>
