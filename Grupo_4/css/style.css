@@ -266,6 +266,88 @@ a:hover {
   transform: scale(0.95);
 }
 
+/* ====== NAVEGAÇÃO CALENDÁRIO ====== */
+.navegacao-calendario {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  gap: 10px;
+}
+
+.botao-navegacao {
+  background-color: var(--azul-medio);
+  color: var(--branco);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.botao-navegacao:hover {
+  background-color: var(--azul-claro);
+  color: var(--preto);
+}
+
+.botao-navegacao:active {
+  transform: scale(0.9);
+}
+
+.navegacao-calendario .titulo-secao {
+  flex: 1;
+  text-align: center;
+  margin: 0;
+  font-size: 18px;
+}
+
+.navegacao-ano {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 16px;
+}
+
+.botao-navegacao-ano {
+  background-color: var(--azul-claro);
+  color: var(--azul-medio);
+  border: 2px solid var(--azul-medio);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  min-width: 50px;
+}
+
+.botao-navegacao-ano:hover {
+  background-color: var(--azul-medio);
+  color: var(--branco);
+}
+
+.botao-navegacao-ano:active {
+  transform: scale(0.95);
+}
+
+.ano-display {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--azul-medio);
+  min-width: 60px;
+  text-align: center;
+}
+
 .link-principal {
   font-weight: 500;
   color: var(--azul-medio);
@@ -765,11 +847,14 @@ textarea.input-formulario {
   background: var(--branco);
   width: 90%;
   max-width: 320px;
-  margin: 20vh auto;
-  padding: 16px;
+  max-height: 85vh;
+  margin: 10vh auto;
+  padding: 12px;
   border: 2px solid var(--azul-medio);
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 
 .cabecalho-modal {
@@ -780,8 +865,9 @@ textarea.input-formulario {
 
 .titulo-modal {
   font-family: 'Rubik', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   color: var(--azul-medio);
+  margin: 0;
 }
 
 .fechar-modal {
@@ -795,12 +881,26 @@ textarea.input-formulario {
 }
 
 .texto-modal {
-  margin: 20px 0;
+  margin: 12px 0;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.texto-modal .grupo-formulario {
+  margin-bottom: 12px;
 }
 
 .acoes-modal {
   display: flex;
   justify-content: space-between;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.acoes-modal .botao {
+  flex: 1;
+  min-width: 120px;
 }
 
 /* ====== CHAT COM PROFESSOR ====== */

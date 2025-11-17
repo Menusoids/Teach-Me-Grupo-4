@@ -1,67 +1,80 @@
 // Função para carregar eventos do localStorage
 function carregarEventos() {
+  const eventosCalendario = [];
+  
+  // Carregar eventos criados pelo botão +
   const eventosSalvos = localStorage.getItem('eventosCalendario');
   if (eventosSalvos) {
-    return JSON.parse(eventosSalvos);
+    eventosCalendario.push(...JSON.parse(eventosSalvos));
   }
-  // Eventos padrão iniciais
-  return [
-    {
-      dia: 26,
-      mes: new Date().getMonth(),
-      ano: new Date().getFullYear(),
-      tipo: 'aula',
-      titulo: 'Matemática',
-      horario: '14:00',
-      professor: 'Prof. Maria',
-      materia: 'Matemática',
-      descricao: ''
-    },
-    {
-      dia: 27,
-      mes: new Date().getMonth(),
-      ano: new Date().getFullYear(),
-      tipo: 'entrega',
-      titulo: 'Redação',
-      prazo: '23:59',
-      atividade: 'Redação',
-      professor: 'Prof. João',
-      descricao: ''
-    },
-    {
-      dia: 28,
-      mes: new Date().getMonth(),
-      ano: new Date().getFullYear(),
-      tipo: 'aula',
-      titulo: 'Física',
-      horario: '10:00',
-      professor: 'Prof. João',
-      materia: 'Física',
-      descricao: ''
-    },
-    {
-      dia: 29,
-      mes: new Date().getMonth(),
-      ano: new Date().getFullYear(),
-      tipo: 'entrega',
-      titulo: 'Lista de exercícios',
-      prazo: '23:59',
-      atividade: 'Lista de exercícios',
-      professor: 'Prof. Maria',
-      descricao: ''
-    },
-    {
-      dia: 30,
-      mes: new Date().getMonth(),
-      ano: new Date().getFullYear(),
-      tipo: 'aula',
-      titulo: 'Programação',
-      horario: '16:00',
-      professor: 'Prof. Maria',
-      materia: 'Programação',
-      descricao: ''
+  
+  // Carregar eventos de agendamentos
+  const agendamentoAtual = localStorage.getItem('agendamentoAtual');
+  if (agendamentoAtual) {
+    try {
+      const agendamento = JSON.parse(agendamentoAtual);
+      if (agendamento.data && agendamento.horario) {
+        // Converter data do formato YYYY-MM-DD para dia, mês, ano
+        const dataAgendamento = new Date(agendamento.data + 'T00:00:00');
+        const dia = dataAgendamento.getDate();
+        const mes = dataAgendamento.getMonth();
+        const ano = dataAgendamento.getFullYear();
+        
+        // Criar evento de aula
+        const eventoAula = {
+          dia: dia,
+          mes: mes,
+          ano: ano,
+          tipo: 'aula',
+          titulo: agendamento.materia || 'Aula',
+          horario: agendamento.horario,
+          materia: agendamento.materia || '',
+          professor: agendamento.professor || '',
+          descricao: agendamento.observacoes || '',
+          nomeAluno: agendamento.nomeAluno || ''
+        };
+        
+        eventosCalendario.push(eventoAula);
+      }
+    } catch (e) {
+      console.error('Erro ao carregar agendamento:', e);
     }
-  ];
+  }
+  
+  // Carregar todos os agendamentos salvos (se houver múltiplos)
+  const todosAgendamentos = localStorage.getItem('todosAgendamentos');
+  if (todosAgendamentos) {
+    try {
+      const agendamentos = JSON.parse(todosAgendamentos);
+      agendamentos.forEach(agendamento => {
+        if (agendamento.data && agendamento.horario) {
+          const dataAgendamento = new Date(agendamento.data + 'T00:00:00');
+          const dia = dataAgendamento.getDate();
+          const mes = dataAgendamento.getMonth();
+          const ano = dataAgendamento.getFullYear();
+          
+          const eventoAula = {
+            dia: dia,
+            mes: mes,
+            ano: ano,
+            tipo: 'aula',
+            titulo: agendamento.materia || 'Aula',
+            horario: agendamento.horario,
+            materia: agendamento.materia || '',
+            professor: agendamento.professor || '',
+            descricao: agendamento.observacoes || '',
+            nomeAluno: agendamento.nomeAluno || ''
+          };
+          
+          eventosCalendario.push(eventoAula);
+        }
+      });
+    } catch (e) {
+      console.error('Erro ao carregar agendamentos:', e);
+    }
+  }
+  
+  return eventosCalendario;
 }
 
 // Função para salvar eventos no localStorage
@@ -146,22 +159,29 @@ function criarModal(evento, dia, mes, ano) {
   `;
 }
 
+// Variáveis globais para mês e ano atual
+let mesAtual = new Date().getMonth();
+let anoAtual = new Date().getFullYear();
+
 // Função para gerar o calendário
 function gerarCalendario() {
-  const agora = new Date();
-  const ano = agora.getFullYear();
-  const mes = agora.getMonth();
-  const nomeMes = obterNomeMes(mes);
+  const nomeMes = obterNomeMes(mesAtual);
   
   // Atualizar título
-  const titulo = document.querySelector('.titulo-secao');
+  const titulo = document.getElementById('titulo-calendario');
   if (titulo) {
-    titulo.textContent = `Calendário - ${nomeMes} ${ano}`;
+    titulo.textContent = nomeMes;
+  }
+  
+  // Atualizar ano
+  const anoDisplay = document.getElementById('ano-atual');
+  if (anoDisplay) {
+    anoDisplay.textContent = anoAtual;
   }
   
   // Obter informações do mês
-  const primeiroDia = obterPrimeiroDiaSemana(ano, mes);
-  const diasNoMes = obterDiasNoMes(ano, mes);
+  const primeiroDia = obterPrimeiroDiaSemana(anoAtual, mesAtual);
+  const diasNoMes = obterDiasNoMes(anoAtual, mesAtual);
   
   // Container do calendário
   const gradeCalendario = document.getElementById('grade-calendario');
@@ -188,7 +208,7 @@ function gerarCalendario() {
     diaElement.appendChild(numeroDia);
     
     // Verificar se há eventos neste dia
-    const eventosDoDia = obterEventosDoDia(dia, mes, ano);
+    const eventosDoDia = obterEventosDoDia(dia, mesAtual, anoAtual);
     
     if (eventosDoDia.length > 0) {
       // Adicionar classe para indicar que tem evento
@@ -204,7 +224,7 @@ function gerarCalendario() {
       
       // Adicionar evento de clique
       diaElement.addEventListener('click', function() {
-        abrirModal(eventosDoDia[0], dia, mes, ano);
+        abrirModal(eventosDoDia[0], dia, mesAtual, anoAtual);
       });
     }
     
@@ -351,9 +371,68 @@ function criarNovoEvento() {
   gerarCalendario();
 }
 
+// Funções de navegação
+function mesAnterior() {
+  mesAtual--;
+  if (mesAtual < 0) {
+    mesAtual = 11;
+    anoAtual--;
+  }
+  // Recarregar eventos para o novo mês
+  eventos = carregarEventos();
+  gerarCalendario();
+}
+
+function mesProximo() {
+  mesAtual++;
+  if (mesAtual > 11) {
+    mesAtual = 0;
+    anoAtual++;
+  }
+  // Recarregar eventos para o novo mês
+  eventos = carregarEventos();
+  gerarCalendario();
+}
+
+function anoAnterior() {
+  anoAtual--;
+  // Recarregar eventos para o novo ano
+  eventos = carregarEventos();
+  gerarCalendario();
+}
+
+function anoProximo() {
+  anoAtual++;
+  // Recarregar eventos para o novo ano
+  eventos = carregarEventos();
+  gerarCalendario();
+}
+
 // Executar quando a página carregar
 window.addEventListener('DOMContentLoaded', function() {
   gerarCalendario();
+  
+  // Botões de navegação
+  const botaoMesAnterior = document.getElementById('botao-mes-anterior');
+  const botaoMesProximo = document.getElementById('botao-mes-proximo');
+  const botaoAnoAnterior = document.getElementById('botao-ano-anterior');
+  const botaoAnoProximo = document.getElementById('botao-ano-proximo');
+  
+  if (botaoMesAnterior) {
+    botaoMesAnterior.addEventListener('click', mesAnterior);
+  }
+  
+  if (botaoMesProximo) {
+    botaoMesProximo.addEventListener('click', mesProximo);
+  }
+  
+  if (botaoAnoAnterior) {
+    botaoAnoAnterior.addEventListener('click', anoAnterior);
+  }
+  
+  if (botaoAnoProximo) {
+    botaoAnoProximo.addEventListener('click', anoProximo);
+  }
   
   // Botão criar evento
   const botaoCriarEvento = document.getElementById('botao-criar-evento');

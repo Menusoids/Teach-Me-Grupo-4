@@ -212,6 +212,15 @@ document.addEventListener('DOMContentLoaded', function() {
         // Salva no localStorage
         localStorage.setItem('agendamentoAtual', JSON.stringify(dadosAgendamento));
         
+        // Salvar em lista de todos os agendamentos para aparecer no calendário
+        let todosAgendamentos = [];
+        const agendamentosSalvos = localStorage.getItem('todosAgendamentos');
+        if (agendamentosSalvos) {
+            todosAgendamentos = JSON.parse(agendamentosSalvos);
+        }
+        todosAgendamentos.push(dadosAgendamento);
+        localStorage.setItem('todosAgendamentos', JSON.stringify(todosAgendamentos));
+        
         // Redireciona para a página de confirmação
         window.location.href = 'confirmacao.html';
     });

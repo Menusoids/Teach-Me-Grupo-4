@@ -20,7 +20,16 @@
   
     <main class="conteudo-principal">
       <section class="secao">
-        <h1 class="titulo-secao">Calendário</h1>
+        <div class="navegacao-calendario">
+          <button id="botao-mes-anterior" class="botao-navegacao" aria-label="Mês anterior">‹</button>
+          <h1 class="titulo-secao" id="titulo-calendario">Calendário</h1>
+          <button id="botao-mes-proximo" class="botao-navegacao" aria-label="Próximo mês">›</button>
+        </div>
+        <div class="navegacao-ano">
+          <button id="botao-ano-anterior" class="botao-navegacao-ano" aria-label="Ano anterior">‹‹</button>
+          <span id="ano-atual" class="ano-display"></span>
+          <button id="botao-ano-proximo" class="botao-navegacao-ano" aria-label="Próximo ano">››</button>
+        </div>
         <div class="calendario-container">
           <div class="cabecalho-calendario">
             <div class="dias-semana">
