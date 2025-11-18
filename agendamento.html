@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Aula</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  
+  <body>
+    <header class="cabecalho">
+      <a href="index.html" class="cabecalho__casa">
+        <img src="img/casa.png" alt="casa">
+      </a>
+      <h1 class="cabecalho__titulo">Teach Me!</h1>
+      <a href="perfil.html" class="cabecalho__pessoa">
+        <img src="img/perfil.png" alt="Perfil">
+      </a>
+    </header>
+
+    <main class="conteudo-principal">
+      <h1 class="titulo-secao">Agendamento de Aula</h1>
+      <div id="mensagem-erro" class="mensagem-erro" style="display: none;"></div>
+      <div id="aviso-reagendar" class="alerta-reagendar" style="display: none;"></div>
+
+      <nav class="navegacao-principal">
+        <a href="lista_professores.html" class="botao botao-secundario">← Voltar</a>
+      </nav>
+
+      <div class="container-professora">
+        <div class="foto-professora">
+          <img src="img/ana.png" alt="Foto do professor" id="foto-professor">
+        </div>
+        <div class="texto-professora">
+          <h2 class="professor-agendamento" id="nome-professor">Professor(a): Ana Souza – Matemática</h2>
+          <p class="paragrafo_agendamento" id="descricao-professor">Sou Ana Souza, formada em Matemática pela Universidade de São Paulo (USP) e apaixonada por ensinar. Há mais de 5 anos, ajudo alunos a entenderem a matemática de forma leve e prática, transformando o medo dos números em curiosidade e confiança. Gosto de adaptar minhas aulas ao ritmo de cada estudante e mostrar como a lógica está presente em tudo ao nosso redor.</p>
+        </div>
+      </div>
+
+      <form class="formulario formulario-agendamento" action="#" method="get" id="formulario-agendamento">
+        <div class="grupo-formulario">
+          <label>Data:
+            <input type="date" required class="input-formulario" id="input-data">
+          </label>
+        </div>
+
+        <div class="grupo-formulario">
+          <label>Duração:
+            <select required class="select-formulario" id="select-duracao">
+              <option value="">Selecione…</option>
+              <option>60 min</option>
+              <option>90 min</option>
+              <option>120 min</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="acoes-formulario">
+          <a class="botao botao-principal" href="#horarios">Ver horários disponíveis</a>
+          <a class="botao botao-secundario" href="chat_professor.html?professor=ana&voltar=agendamento">💬 Conversar com Professor</a>
+        </div>
+      </form>
+
+      <section id="horarios" class="horarios-agendamento">
+        <h3 class="subtitulo-agendamento">Horários disponíveis</h3>
+        <div class="lista-horarios">
+          <a class="horario-disponivel" href="#confirmar" data-horario="14:00 – 15:00">14:00 – 15:00</a>
+          <a class="horario-disponivel" href="#confirmar" data-horario="15:30 – 16:30">15:30 – 16:30</a>
+          <a class="horario-disponivel" href="#confirmar" data-horario="18:00 – 19:00">18:00 – 19:00</a>
+        </div>
+        <a href="#" class="ocultar-horarios">← Ocultar horários</a>
+      </section>
+    </main>
+
+    <div id="confirmar" class="fundo-modal">
+      <div class="modal" role="dialog" aria-modal="true">
+        <header class="cabecalho-modal">
+          <h2 class="titulo-modal">Confirmar agendamento</h2>
+          <a href="#" class="fechar-modal">✖</a>
+        </header>
+        <div class="texto-modal">
+          <p>
+            Deseja confirmar este agendamento?
+          </p>
+          <div class="info-agendamento-modal">
+            <p><strong>Professor(a):</strong> <span id="modal-professor">Ana Souza</span></p>
+            <p><strong>Data:</strong> <span id="modal-data">-</span></p>
+            <p><strong>Horário:</strong> <span id="modal-horario">-</span></p>
+            <p><strong>Duração:</strong> <span id="modal-duracao">-</span></p>
+          </div>
+          <div class="grupo-formulario">
+            <label>Nome do Aluno:
+              <input type="text" required class="input-formulario" id="input-nome-aluno" placeholder="Digite o nome do aluno">
+            </label>
+          </div>
+          <div class="grupo-formulario">
+            <label>Observações:
+              <textarea class="input-formulario" id="input-observacoes" rows="3" placeholder="Digite observações (opcional)"></textarea>
+            </label>
+          </div>
+        </div>
+        <div class="acoes-modal">
+          <button type="button" id="botao-confirmar" class="botao botao-principal botao-desabilitado">Agendar</button>
+          <a href="#" class="botao botao-secundario">Cancelar</a>
+        </div>
+      </div>
+    </div>
+    <footer class="rodape">
+      <nav class="navegacao-rodape">
+        <a href="configuracoes.html" class="rodape__config">
+          <img src="img/config.png" alt="Configurações">
+        </a>
+        <a href="calendario.html" class="rodape__calend">
+          <img src="img/calendario.png" alt="Calendário">
+        </a>
+        <a href="progresso.html" class="rodape__progresso">
+          <img src="img/progresso.png" alt="Progresso">
+        </a>
+        <a href="mensagens.html" class="rodape__mensagens">
+          <img src="img/mensagem.png" alt="Mensagens">
+        </a>
+      </nav>
+    </footer>
+    <script src="js/agendamento.js"></script>
+  </body>
+</html>

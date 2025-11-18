@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat com Professor</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header class="cabecalho">
+      <a href="index.html" class="cabecalho__casa">
+        <img src="img/casa.png" alt="casa">
+      </a>
+      <h1 class="cabecalho__titulo">Teach Me!</h1>
+      <a href="perfil.html" class="cabecalho__pessoa">
+        <img src="img/perfil.png" alt="Perfil">
+      </a>
+    </header>
+
+    <main class="conteudo-principal">
+      <div class="cabecalho-chat">
+        <div class="info-professor-chat">
+          <div class="foto-professora-chat">
+            <img src="img/ana.png" alt="Foto da Prof. Ana Souza">
+          </div>
+          <div class="dados-professor-chat">
+            <h1 class="titulo-secao">Prof. Ana Souza</h1>
+            <p class="status-professor">Matemática • Online</p>
+          </div>
+        </div>
+        
+        <nav class="navegacao-principal">
+          <a href="mensagens.html" class="botao botao-secundario">← Voltar</a>
+        </nav>
+      </div>
+
+      <div class="container-chat">
+        <div class="area-mensagens" id="area-mensagens">
+          <div class="mensagem-professor">
+            <div class="avatar-professor">
+              <img src="img/ana.png" alt="Prof. Ana">
+            </div>
+            <div class="conteudo-mensagem">
+              <div class="cabecalho-mensagem">
+                <span class="nome-professor">Prof. Ana Souza</span>
+                <span class="hora-mensagem">14:30</span>
+              </div>
+              <div class="texto-mensagem">
+                Olá! Como posso ajudá-lo hoje? Tem alguma dúvida sobre matemática?
+              </div>
+            </div>
+          </div>
+
+          <div class="mensagem-aluno">
+            <div class="conteudo-mensagem">
+              <div class="cabecalho-mensagem">
+                <span class="nome-aluno">Você</span>
+                <span class="hora-mensagem">14:32</span>
+              </div>
+              <div class="texto-mensagem">
+                Oi professora! Tenho uma dúvida sobre equações do segundo grau.
+              </div>
+            </div>
+            <div class="avatar-aluno">
+              <img src="img/pessoa.png" alt="Aluno">
+            </div>
+          </div>
+
+          <div class="mensagem-professor">
+            <div class="avatar-professor">
+              <img src="img/ana.png" alt="Prof. Ana">
+            </div>
+            <div class="conteudo-mensagem">
+              <div class="cabecalho-mensagem">
+                <span class="nome-professor">Prof. Ana Souza</span>
+                <span class="hora-mensagem">14:33</span>
+              </div>
+              <div class="texto-mensagem">
+                Perfeito! Equações do segundo grau são fundamentais. Qual é sua dúvida específica?
+              </div>
+            </div>
+          </div>
+
+          <div class="mensagem-aluno">
+            <div class="conteudo-mensagem">
+              <div class="cabecalho-mensagem">
+                <span class="nome-aluno">Você</span>
+                <span class="hora-mensagem">14:35</span>
+              </div>
+              <div class="texto-mensagem">
+                Não estou conseguindo resolver x² - 5x + 6 = 0
+              </div>
+            </div>
+            <div class="avatar-aluno">
+              <img src="img/pessoa.png" alt="Aluno">
+            </div>
+          </div>
+
+          <div class="mensagem-professor">
+            <div class="avatar-professor">
+              <img src="img/ana.png" alt="Prof. Ana">
+            </div>
+            <div class="conteudo-mensagem">
+              <div class="cabecalho-mensagem">
+                <span class="nome-professor">Prof. Ana Souza</span>
+                <span class="hora-mensagem">14:36</span>
+              </div>
+              <div class="texto-mensagem">
+                Vamos resolver juntos! Primeiro, vamos usar a fórmula de Bhaskara:
+                <br><br>
+                Δ = b² - 4ac
+                <br>
+                Δ = (-5)² - 4(1)(6)
+                <br>
+                Δ = 25 - 24 = 1
+                <br><br>
+                x = (5 ± √1) / 2
+                <br>
+                x₁ = (5 + 1) / 2 = 3
+                <br>
+                x₂ = (5 - 1) / 2 = 2
+                <br><br>
+                As raízes são x = 2 e x = 3. Conseguiu entender?
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="area-envio">
+          <div class="container-input">
+            <div class="input-desabilitado">
+              <span>chat simbólico</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="rodape">
+      <nav class="navegacao-rodape">
+        <a href="configuracoes.html" class="rodape__config">
+          <img src="img/config.png" alt="Configurações">
+        </a>
+        <a href="calendario.html" class="rodape__calend">
+          <img src="img/calendario.png" alt="Calendário">
+        </a>
+        <a href="progresso.html" class="rodape__progresso">
+          <img src="img/progresso.png" alt="Progresso">
+        </a>
+        <a href="mensagens.html" class="rodape__mensagens">
+          <img src="img/mensagem.png" alt="Mensagens">
+        </a>
+      </nav>
+    </footer>
+
+  </body>
+</html>
