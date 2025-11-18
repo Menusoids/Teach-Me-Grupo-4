@@ -263,24 +263,19 @@ document.addEventListener('DOMContentLoaded', function() {
         if (agendamentosSalvos) {
             todosAgendamentos = JSON.parse(agendamentosSalvos);
         }
-        let indexAgendamento = -1;
+
         if (dadosAgendamento.id) {
-            indexAgendamento = todosAgendamentos.findIndex(item => item.id === dadosAgendamento.id);
-        }
-        if (indexAgendamento === -1 && dadosReagendamento) {
-            indexAgendamento = todosAgendamentos.findIndex(item =>
+            todosAgendamentos = todosAgendamentos.filter(item => item.id !== dadosAgendamento.id);
+        } else if (dadosReagendamento) {
+            todosAgendamentos = todosAgendamentos.filter(item => !(
                 item.professor === dadosReagendamento.professor &&
                 item.materia === dadosReagendamento.materia &&
                 item.data === dadosReagendamento.data &&
                 item.horario === dadosReagendamento.horario
-            );
+            ));
         }
 
-        if (indexAgendamento >= 0) {
-            todosAgendamentos[indexAgendamento] = dadosAgendamento;
-        } else {
-            todosAgendamentos.push(dadosAgendamento);
-        }
+        todosAgendamentos.push(dadosAgendamento);
         localStorage.setItem('todosAgendamentos', JSON.stringify(todosAgendamentos));
 
         if (dadosReagendamento) {
