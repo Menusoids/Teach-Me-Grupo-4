@@ -125,7 +125,7 @@ function criarModal(evento, dia, mes, ano) {
   let conteudoModal = '';
   
   if (evento.tipo === 'aula') {
-    const podeRemarcar = evento.professor || evento.materia;
+    const podeRemarcar = true;
     conteudoModal = `
       <div class="cabecalho-modal">
         <h3 class="titulo-modal">${dia} de ${nomeMes} - ${evento.titulo}</h3>
@@ -141,8 +141,10 @@ function criarModal(evento, dia, mes, ano) {
         ${evento.descricao ? `<p><strong>Descrição:</strong> ${evento.descricao}</p>` : ''}
       </div>
       ${podeRemarcar ? `
-        <div class="acoes-modal">
-          <button class="botao botao-principal botao-remarcar">Remarcar aula</button>
+        <div class="acoes-modal acoes-modal-remarcar">
+          <button class="botao botao-principal botao-remarcar" type="button">
+            Remarcar aula
+          </button>
         </div>
       ` : ''}
     `;

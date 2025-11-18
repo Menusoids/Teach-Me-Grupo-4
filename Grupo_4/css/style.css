@@ -144,6 +144,14 @@ a:hover {
   line-height: 1.4;
 }
 
+.acoes-modal-remarcar {
+  margin-top: 8px;
+}
+
+.botao-remarcar {
+  width: 100%;
+}
+
 .detalhes-agendamento {
   background-color: var(--azul-claro);
   padding: 16px;
