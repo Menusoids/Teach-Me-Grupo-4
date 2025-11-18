@@ -4,6 +4,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const nomeProfessorURL = urlParams.get('professor');
     const materiaURL = urlParams.get('materia');
+    const reagendamentoSalvo = localStorage.getItem('agendamentoParaReagendar');
+    let dadosReagendamento = null;
+
+    if (reagendamentoSalvo) {
+        try {
+            dadosReagendamento = JSON.parse(reagendamentoSalvo);
+        } catch (error) {
+            console.error('Não foi possível ler o reagendamento salvo:', error);
+            dadosReagendamento = null;
+        }
+    }
     
     // Elementos do formulário
     const inputData = document.getElementById('input-data');
@@ -19,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const fundoModal = document.getElementById('confirmar');
     const fecharModal = document.querySelector('.fechar-modal');
     const botaoCancelar = document.querySelector('.acoes-modal .botao-secundario');
+    const avisoReagendar = document.getElementById('aviso-reagendar');
     
     // Elementos da página para atualizar com dados do professor
     const nomeProfessorElement = document.getElementById('nome-professor');
@@ -29,8 +41,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const horariosDisponiveis = document.querySelectorAll('.horario-disponivel');
     
     // Determina o nome do professor (da URL ou padrão)
-    const nomeProfessor = nomeProfessorURL ? decodeURIComponent(nomeProfessorURL) : 'Ana Souza';
-    const materiaProfessor = materiaURL ? decodeURIComponent(materiaURL) : 'Matemática';
+    const nomeProfessor = dadosReagendamento?.professor
+        ? dadosReagendamento.professor
+        : (nomeProfessorURL ? decodeURIComponent(nomeProfessorURL) : 'Ana Souza');
+    const materiaProfessor = dadosReagendamento?.materia
+        ? dadosReagendamento.materia
+        : (materiaURL ? decodeURIComponent(materiaURL) : 'Matemática');
     
     // Função para detectar gênero do nome (nomes comuns brasileiros)
     function detectarGenero(nome) {
@@ -89,13 +105,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Variáveis para armazenar dados do agendamento
     let dadosAgendamento = {
+        id: dadosReagendamento?.id || null,
         professor: nomeProfessor,
         materia: materiaProfessor,
-        data: '',
-        horario: '',
-        duracao: '',
-        nomeAluno: '',
-        observacoes: ''
+        data: dadosReagendamento?.data || '',
+        horario: dadosReagendamento?.horario || '',
+        duracao: dadosReagendamento?.duracao || '',
+        nomeAluno: dadosReagendamento?.nomeAluno || '',
+        observacoes: dadosReagendamento?.observacoes || ''
     };
 
     // Função para formatar data
@@ -170,9 +187,11 @@ document.addEventListener('DOMContentLoaded', function() {
             modalHorario.textContent = horarioSelecionado;
             modalDuracao.textContent = duracaoSelecionada;
             
-            // Limpa campos do modal
-            inputNomeAluno.value = '';
-            inputObservacoes.value = '';
+            // Limpa campos do modal somente para novos agendamentos
+            if (!dadosReagendamento) {
+                inputNomeAluno.value = '';
+                inputObservacoes.value = '';
+            }
             
             // Desabilita o botão inicialmente
             atualizarEstadoBotao();
@@ -184,6 +203,29 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.hash = 'confirmar';
         });
     });
+
+    // Preenche campos caso seja reagendamento
+    if (dadosReagendamento) {
+        if (dadosReagendamento.data && inputData) {
+            inputData.value = dadosReagendamento.data;
+        }
+        if (dadosReagendamento.duracao && selectDuracao) {
+            selectDuracao.value = dadosReagendamento.duracao;
+        }
+        if (dadosReagendamento.nomeAluno && inputNomeAluno) {
+            inputNomeAluno.value = dadosReagendamento.nomeAluno;
+        }
+        if (dadosReagendamento.observacoes && inputObservacoes) {
+            inputObservacoes.value = dadosReagendamento.observacoes;
+        }
+        if (avisoReagendar) {
+            const dataFormatada = formatarData(dadosReagendamento.data);
+            const textoHorario = dadosReagendamento.horario ? ` às <strong>${dadosReagendamento.horario}</strong>` : '';
+            avisoReagendar.innerHTML = `Você está reagendando a aula marcada para <strong>${dataFormatada}</strong>${textoHorario}. Escolha uma nova data e horário para continuar.`;
+            avisoReagendar.style.display = 'block';
+        }
+        atualizarEstadoBotao();
+    }
 
     // Event listeners para validação em tempo real dos campos do modal
     inputNomeAluno.addEventListener('input', function() {
@@ -208,6 +250,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Atualiza dados do agendamento com informações do modal
         dadosAgendamento.nomeAluno = inputNomeAluno.value.trim();
         dadosAgendamento.observacoes = inputObservacoes.value.trim();
+        if (!dadosAgendamento.id) {
+            dadosAgendamento.id = `agendamento-${Date.now()}`;
+        }
         
         // Salva no localStorage
         localStorage.setItem('agendamentoAtual', JSON.stringify(dadosAgendamento));
@@ -218,8 +263,29 @@ document.addEventListener('DOMContentLoaded', function() {
         if (agendamentosSalvos) {
             todosAgendamentos = JSON.parse(agendamentosSalvos);
         }
-        todosAgendamentos.push(dadosAgendamento);
+        let indexAgendamento = -1;
+        if (dadosAgendamento.id) {
+            indexAgendamento = todosAgendamentos.findIndex(item => item.id === dadosAgendamento.id);
+        }
+        if (indexAgendamento === -1 && dadosReagendamento) {
+            indexAgendamento = todosAgendamentos.findIndex(item =>
+                item.professor === dadosReagendamento.professor &&
+                item.materia === dadosReagendamento.materia &&
+                item.data === dadosReagendamento.data &&
+                item.horario === dadosReagendamento.horario
+            );
+        }
+
+        if (indexAgendamento >= 0) {
+            todosAgendamentos[indexAgendamento] = dadosAgendamento;
+        } else {
+            todosAgendamentos.push(dadosAgendamento);
+        }
         localStorage.setItem('todosAgendamentos', JSON.stringify(todosAgendamentos));
+
+        if (dadosReagendamento) {
+            localStorage.removeItem('agendamentoParaReagendar');
+        }
         
         // Redireciona para a página de confirmação
         window.location.href = 'confirmacao.html';

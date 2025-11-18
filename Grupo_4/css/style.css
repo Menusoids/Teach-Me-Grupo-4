@@ -133,6 +133,17 @@ a:hover {
   font-weight: 500;
 }
 
+.alerta-reagendar {
+  background-color: var(--azul-claro);
+  color: var(--preto);
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  border: 2px dashed var(--azul-medio);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
 .detalhes-agendamento {
   background-color: var(--azul-claro);
   padding: 16px;

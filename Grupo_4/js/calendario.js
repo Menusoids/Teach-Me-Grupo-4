@@ -31,7 +31,9 @@ function carregarEventos() {
           materia: agendamento.materia || '',
           professor: agendamento.professor || '',
           descricao: agendamento.observacoes || '',
-          nomeAluno: agendamento.nomeAluno || ''
+          nomeAluno: agendamento.nomeAluno || '',
+          duracao: agendamento.duracao || '',
+          id: agendamento.id || null
         };
         
         eventosCalendario.push(eventoAula);
@@ -63,7 +65,9 @@ function carregarEventos() {
             materia: agendamento.materia || '',
             professor: agendamento.professor || '',
             descricao: agendamento.observacoes || '',
-            nomeAluno: agendamento.nomeAluno || ''
+            nomeAluno: agendamento.nomeAluno || '',
+            duracao: agendamento.duracao || '',
+            id: agendamento.id || null
           };
           
           eventosCalendario.push(eventoAula);
@@ -121,6 +125,7 @@ function criarModal(evento, dia, mes, ano) {
   let conteudoModal = '';
   
   if (evento.tipo === 'aula') {
+    const podeRemarcar = evento.professor || evento.materia;
     conteudoModal = `
       <div class="cabecalho-modal">
         <h3 class="titulo-modal">${dia} de ${nomeMes} - ${evento.titulo}</h3>
@@ -131,8 +136,15 @@ function criarModal(evento, dia, mes, ano) {
         <p><strong>Tipo:</strong> Aula</p>
         ${evento.materia ? `<p><strong>Matéria:</strong> ${evento.materia}</p>` : ''}
         ${evento.professor ? `<p><strong>Professor:</strong> ${evento.professor}</p>` : ''}
+        ${evento.nomeAluno ? `<p><strong>Aluno:</strong> ${evento.nomeAluno}</p>` : ''}
+        ${evento.duracao ? `<p><strong>Duração:</strong> ${evento.duracao}</p>` : ''}
         ${evento.descricao ? `<p><strong>Descrição:</strong> ${evento.descricao}</p>` : ''}
       </div>
+      ${podeRemarcar ? `
+        <div class="acoes-modal">
+          <button class="botao botao-principal botao-remarcar">Remarcar aula</button>
+        </div>
+      ` : ''}
     `;
   } else {
     conteudoModal = `
@@ -157,6 +169,24 @@ function criarModal(evento, dia, mes, ano) {
       </div>
     </div>
   `;
+}
+
+// Função para preparar reagendamento
+function prepararReagendamento(evento, dia, mes, ano) {
+  const dataISO = `${ano}-${String(mes + 1).padStart(2, '0')}-${String(dia).padStart(2, '0')}`;
+  const dados = {
+    id: evento.id || null,
+    professor: evento.professor || '',
+    materia: evento.materia || evento.titulo || '',
+    data: dataISO,
+    horario: evento.horario || '',
+    duracao: evento.duracao || '',
+    nomeAluno: evento.nomeAluno || '',
+    observacoes: evento.descricao || ''
+  };
+  
+  localStorage.setItem('agendamentoParaReagendar', JSON.stringify(dados));
+  window.location.href = 'agendamento.html?reagendar=1';
 }
 
 // Variáveis globais para mês e ano atual
@@ -283,6 +313,15 @@ function abrirModal(evento, dia, mes, ano) {
           }, 300);
         }
       });
+
+      // Reagendar aula diretamente
+      const botaoRemarcar = modal.querySelector('.botao-remarcar');
+      if (botaoRemarcar) {
+        botaoRemarcar.addEventListener('click', function(e) {
+          e.preventDefault();
+          prepararReagendamento(evento, dia, mes, ano);
+        });
+      }
     }, 10);
   }
 }
