@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação de Aula</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header class="cabecalho">
+      <a href="index.html" class="cabecalho__casa">
+        <img src="img/casa.png" alt="casa">
+      </a>
+      <h1 class="cabecalho__titulo">Teach Me!</h1>
+      <a href="perfil.html" class="cabecalho__pessoa">
+        <img src="img/perfil.png" alt="Perfil">
+      </a>
+    </header>
+
+    <main class="conteudo-principal">
+      <h1 class="titulo-secao">Agendamento Confirmado</h1>
+     
+      <section class="secao">
+        <p>Sua aula foi agendada com sucesso!</p>
+        <div id="detalhes-agendamento" class="detalhes-agendamento">
+          <p><strong>Professor(a):</strong> <span id="conf-professor">-</span></p>
+          <p><strong>Data:</strong> <span id="conf-data">-</span></p>
+          <p><strong>Horário:</strong> <span id="conf-horario">-</span></p>
+          <p><strong>Duração:</strong> <span id="conf-duracao">-</span></p>
+          <p><strong>Nome do Aluno:</strong> <span id="conf-nome-aluno">-</span></p>
+          <p><strong>Observações:</strong> <span id="conf-observacoes">-</span></p>
+        </div>
+        <p>Confira os detalhes no calendário ou converse com o professor em <a href="mensagens.html">Mensagens</a>.</p>
+      </section>
+
+      <nav class="navegacao-principal">
+        <a href="calendario.html" class="botao botao-principal">Ver calendário</a>
+      </nav>
+    </main>
+    <footer class="rodape">
+      <nav class="navegacao-rodape">
+        <a href="configuracoes.html" class="rodape__config">
+          <img src="img/config.png" alt="Configurações">
+        </a>
+        <a href="calendario.html" class="rodape__calend">
+          <img src="img/calendario.png" alt="Calendário">
+        </a>
+        <a href="progresso.html" class="rodape__progresso">
+          <img src="img/progresso.png" alt="Progresso">
+        </a>
+        <a href="mensagens.html" class="rodape__mensagens">
+          <img src="img/mensagem.png" alt="Mensagens">
+        </a>
+      </nav>
+    </footer>
+    <script src="js/confirmacao.js"></script>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encontrar Professores</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header class="cabecalho">
+      <a href="index.html" class="cabecalho__casa">
+        <img src="img/casa.png" alt="casa">
+      </a>
+      <h1 class="cabecalho__titulo">Teach Me!</h1>
+      <a href="perfil.html" class="cabecalho__pessoa">
+        <img src="img/perfil.png" alt="Perfil">
+      </a>
+    </header>
+
+    <main class="conteudo-principal">
+      <h2 class="titulo-secao">Selecione os filtros da pesquisa:</h2>
+
+      <div class="busca-rapida">
+        <form id="form-busca" class="formulario-busca">
+          <div class="container-busca">
+            <input type="text" id="input-busca" class="input-busca" placeholder="🔍 Pesquisar por matéria (ex: Matemática, Português...)" />
+            <button type="submit" class="botao botao-principal botao-busca">Buscar</button>
+          </div>
+        </form>
+      </div>
+
+      <form action="lista_professores.html" method="get" class="formulario" id="form-filtros">
+
+        <section class="secao-formulario">
+          <h3 class="subtitulo-formulario">Matéria desejada:</h3>
+          <ul class="lista-formulario">
+            <li><label><input type="radio" name="materia" value="Matemática"> Matemática</label></li>
+            <li><label><input type="radio" name="materia" value="Português"> Português</label></li>
+            <li><label><input type="radio" name="materia" value="Ciências"> Ciências</label></li>
+            <li><label><input type="radio" name="materia" value="História"> História</label></li>
+            <li><label><input type="radio" name="materia" value="Geografia"> Geografia</label></li>
+            <li><label><input type="radio" name="materia" value="Inglês"> Inglês</label></li>
+            <li><label><input type="radio" name="materia" value="Redação"> Redação</label></li>
+          </ul>
+        </section>
+
+        <section class="secao-formulario">
+          <h3 class="subtitulo-formulario">Idades desejadas para que o prefessor dê aula:</h3>
+          <ul class="lista-formulario">
+            <li><label><input type="radio" name="idade" value="5-8 anos"> 5-8 anos</label></li>
+            <li><label><input type="radio" name="idade" value="9-12 anos"> 9-12 anos</label></li>
+            <li><label><input type="radio" name="idade" value="13-16 anos"> 13-16 anos</label></li>
+            <li><label><input type="radio" name="idade" value="Acima de 16 anos"> Acima de 16 anos</label></li>
+            <li><label><input type="radio" name="idade" value="todas as idades"> Todas as idades</label></li>
+          </ul>
+        </section>
+
+        <section class="secao-formulario">
+          <h3 class="subtitulo-formulario">Preço máximo por hora:</h3>
+          <ul class="lista-formulario">
+            <li><label><input type="radio" name="preco" value="até R$ 50"> Até R$ 50</label></li>
+            <li><label><input type="radio" name="preco" value="até R$ 100"> Até R$ 100</label></li>
+            <li><label><input type="radio" name="preco" value="até R$ 150"> Até R$ 150</label></li>
+            <li><label><input type="radio" name="preco" value="até R$ 200"> Até R$ 200</label></li>
+            <li><label><input type="radio" name="preco" value="até R$ 250"> Até R$ 250</label></li>
+          </ul>
+        </section>
+
+        <div class="acoes-formulario">
+          <button type="submit" class="botao botao-principal">Ver professores</button>
+          <a href="filtros.html" class="botao botao-secundario">Cancelar</a>
+        </div>
+
+      </form>
+    </main>
+    <script src="js/filtros.js"></script>
+    <script>
+      // Script para busca rápida
+      document.addEventListener('DOMContentLoaded', function() {
+        const formBusca = document.getElementById('form-busca');
+        const inputBusca = document.getElementById('input-busca');
+        
+        formBusca.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const termoBusca = inputBusca.value.trim();
+          
+          if (termoBusca) {
+            // Redireciona para lista_professores.html com parâmetro de busca
+            window.location.href = `lista_professores.html?busca=${encodeURIComponent(termoBusca)}`;
+          }
+        });
+      });
+    </script>
+    <footer class="rodape">
+      <nav class="navegacao-rodape">
+        <a href="configuracoes.html" class="rodape__config">
+          <img src="img/config.png" alt="Configurações">
+        </a>
+        <a href="calendario.html" class="rodape__calend">
+          <img src="img/calendario.png" alt="Calendário">
+        </a>
+        <a href="progresso.html" class="rodape__progresso">
+          <img src="img/progresso.png" alt="Progresso">
+        </a>
+        <a href="mensagens.html" class="rodape__mensagens">
+          <img src="img/mensagem.png" alt="Mensagens">
+        </a>
+      </nav>
+    </footer>
+  </body>
+</html>
